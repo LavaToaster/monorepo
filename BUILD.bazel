@@ -1,0 +1,26 @@
+"""Targets in the repository root"""
+
+load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
+
+gazelle_binary(
+    name = "root_gazelle",
+    languages = DEFAULT_LANGUAGES + [
+        # "@external_repository//language/gazelle",  # External languages can be added here.
+    ],
+    visibility = ["//visibility:public"],
+)
+
+gazelle(
+    name = "gazelle",
+    gazelle = ":root_gazelle",
+)
+
+alias(
+    name = "format",
+    actual = "//tools/format",
+)
+
+exports_files(
+    [".shellcheckrc"],
+    visibility = ["//:__subpackages__"],
+)
