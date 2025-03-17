@@ -1,0 +1,16 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary")
+
+csharp_binary(
+    name = "Bruh.Web",
+    srcs = [
+        "Program.cs",
+        "WeatherController.cs",
+    ],
+    project_sdk = "web",
+    target_frameworks = ["net8.0"],
+    deps = [
+        "//apps/Bruh.Lib",
+        "@nuget//microsoft.aspnetcore.openapi",
+        "@nuget//swashbuckle.aspnetcore",
+    ],
+)

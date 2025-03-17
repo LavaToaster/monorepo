@@ -1,0 +1,189 @@
+// Package csharp provides Gazelle extension for C# rules in rules_dotnet.
+package rules_dotnet
+
+import (
+	"encoding/json"
+	"log"
+	"os"
+	"strings"
+
+	"github.com/bazelbuild/bazel-gazelle/config"
+	"github.com/bazelbuild/bazel-gazelle/label"
+	"github.com/bazelbuild/bazel-gazelle/language"
+	"github.com/bazelbuild/bazel-gazelle/repo"
+	"github.com/bazelbuild/bazel-gazelle/resolve"
+	"github.com/bazelbuild/bazel-gazelle/rule"
+)
+
+// Kind represents a kind of rule.
+type Kind int
+
+const languageName = "csharp"
+
+const (
+	// CSharpLibrary represents the csharp_library rule.
+	CSharpLibrary Kind = iota
+	// CSharpBinary represents the csharp_binary rule.
+	CSharpBinary
+	// CSharpTest represents the csharp_test rule.
+	CSharpTest
+)
+
+func (k Kind) String() string {
+	switch k {
+	case CSharpLibrary:
+		return "csharp_library"
+	case CSharpBinary:
+		return "csharp_binary"
+	case CSharpTest:
+		return "csharp_test"
+	default:
+		return "unknown"
+	}
+}
+
+type BazelNugetPackage struct {
+	Id                     string              `json:"id"`
+	Name                   string              `json:"name"`
+	Version                string              `json:"version"`
+	SHA512                 string              `json:"sha512"`
+	Sources                []string            `json:"sources"`
+	Dependencies           map[string][]string `json:"dependencies"`
+	TargetingPackOverrides []string            `json:"targeting_pack_overrides"`
+	FrameworkList          []string            `json:"framework_list"`
+}
+
+// csharpLang implements the language.Language interface for C#.
+type csharpLang struct {
+	language.BaseLang
+
+	Packages map[string]BazelNugetPackage
+}
+
+// NewLanguage creates a new C# language extension.
+func NewLanguage() language.Language {
+	return &csharpLang{
+		Packages: make(map[string]BazelNugetPackage),
+	}
+}
+
+// Name returns the name of the language. This is used for debugging and
+// in some error messages.
+func (*csharpLang) Name() string {
+	return languageName
+}
+
+// Kinds returns a map of rule names to rule kinds.
+func (*csharpLang) Kinds() map[string]rule.KindInfo {
+	return map[string]rule.KindInfo{
+		"csharp_library": {
+			NonEmptyAttrs: map[string]bool{
+				"srcs": true,
+			},
+			MergeableAttrs: map[string]bool{"srcs": true},
+		},
+		"csharp_binary": {
+			NonEmptyAttrs: map[string]bool{
+				"srcs": true,
+			},
+			MergeableAttrs: map[string]bool{"srcs": true},
+		},
+		"csharp_test": {
+			NonEmptyAttrs: map[string]bool{
+				"srcs": true,
+			},
+			MergeableAttrs: map[string]bool{"srcs": true},
+		},
+	}
+}
+
+// Loads returns a list of file-loading rules needed by the language extension.
+func (*csharpLang) Loads() []rule.LoadInfo {
+	return []rule.LoadInfo{
+		{
+			Name:    "@rules_dotnet//dotnet:defs.bzl",
+			Symbols: []string{"csharp_library", "csharp_binary", "csharp_test"},
+		},
+	}
+}
+
+// Imports returns a list of ImportSpecs that describe imports found in the
+// given file.
+func Imports(c *config.Config, r *rule.Rule, f *rule.File) []resolve.ImportSpec {
+	srcs := r.AttrStrings("srcs")
+	imports := make([]resolve.ImportSpec, 0, len(srcs))
+
+	// for _, src := range srcs {
+	// 	spec := resolve.ImportSpec{
+	// 		// Lang is the language in which the import string appears (this should
+	// 		// match Resolver.Name).
+	// 		Lang: languageName,
+	// 		// Imp is an import string for the library.
+	// 		Imp: fmt.Sprintf("//%s:%s", f.Pkg, src),
+	// 	}
+
+	// 	imports = append(imports, spec)
+	// }
+
+	return imports
+}
+
+// Embeds returns a list of labels that should be embedded in the given rule.
+func (*csharpLang) Embeds(r *rule.Rule, from label.Label) []label.Label {
+	// Basic implementation doesn't need to handle embeddings
+	return nil
+}
+
+// Resolve resolves dependencies for a single rule.
+func (*csharpLang) Resolve(c *config.Config, ix *resolve.RuleIndex, rc *repo.RemoteCache, r *rule.Rule, imports interface{}, from label.Label) {
+	// Basic implementation doesn't need to resolve anything
+}
+
+func (l *csharpLang) DoneGeneratingRules() {
+	if len(l.Packages) == 0 {
+		return
+	}
+
+	log.Printf("Generating nuget_deps.bzl with %d packages", len(l.Packages))
+	root := os.Getenv("BUILD_WORKSPACE_DIRECTORY")
+
+	// Create JSON array of packages
+	packageList := make([]BazelNugetPackage, 0, len(l.Packages))
+	for _, pkg := range l.Packages {
+		packageList = append(packageList, pkg)
+	}
+
+	// Marshal the packages to JSON with nice formatting
+	packagesJSON, err := json.MarshalIndent(packageList, "", "  ")
+	if err != nil {
+		log.Printf("Error marshalling packages to JSON: %v", err)
+		return
+	}
+
+	// Format the JSON for Bazel compatibility, ensuring proper indentation
+	jsonString := string(packagesJSON)
+
+	// Ensure the JSON is indented properly
+	if len(packageList) > 0 {
+		// Replace newlines with newline + indentation
+		jsonString = "[" +
+			strings.ReplaceAll(strings.TrimPrefix(jsonString, "["), "\n", "\n    ")
+	}
+
+	content := `# Auto-generated by Gazelle
+
+load("@rules_dotnet//dotnet:defs.bzl", "nuget_repo")
+
+def nuget_packages():
+  """Defines the NuGet packages."""
+  nuget_repo(
+    name = "nuget",
+    packages = ` + jsonString + `
+  )
+`
+
+	err = os.WriteFile(root+"/nuget_deps.bzl", []byte(content), 0o644)
+	if err != nil {
+		log.Printf("Error writing nuget_deps.bzl: %v", err)
+	}
+}

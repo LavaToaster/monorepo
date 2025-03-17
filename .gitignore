@@ -16,3 +16,5 @@ MODULE.bazel.lock
 
 bin
 obj
+
+*.user

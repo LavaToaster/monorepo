@@ -14,6 +14,26 @@ multitool.hub(lockfile = "//tools:tools.lock.json")
 use_repo(multitool, "multitool")
 
 #########################
+# dotnet
+
+# This is a temporary workaround until the rules_dotnet publishes a new version
+# that includes this fix https://github.com/bazel-contrib/rules_dotnet/pull/470
+git_override(
+    module_name = "rules_dotnet",
+    remote = "https://github.com/bazel-contrib/rules_dotnet.git",
+    commit = "54cf66c0a8d68dd8c5081073da5ac9ce4d762ddd",
+)
+
+dotnet = use_extension("@rules_dotnet//dotnet:extensions.bzl", "dotnet")
+dotnet.toolchain(dotnet_version = "8.0.100")
+use_repo(dotnet, "dotnet_toolchains")
+
+register_toolchains("@dotnet_toolchains//:all")
+
+nuget_packages_extension = use_extension("//:nuget_deps.extension.bzl", "nuget_packages_extension")
+use_repo(nuget_packages_extension, "nuget")
+
+#########################
 # Go
 go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
 go_sdk.nogo(nogo = "//tools/lint:nogo")
@@ -26,16 +46,6 @@ go_deps.from_file(go_mod = "//:go.mod")
 use_repo(go_deps)
 
 #########################
-# dotnet
-
-dotnet = use_extension("@rules_dotnet//dotnet:extensions.bzl", "dotnet")
-dotnet.toolchain(dotnet_version = "8.0.404")
-use_repo(dotnet, "dotnet_toolchains")
-
-register_toolchains("@dotnet_toolchains//:all")
-
-#########################
 # oci
 
 oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
-

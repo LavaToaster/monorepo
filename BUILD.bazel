@@ -2,10 +2,19 @@
 
 load("@gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
 
+# gazelle:prefix github.com/lavatoaster/dbot
+
+# waiting on a tagged release of https://github.com/bazel-contrib/bazel-gazelle/pull/2039
+# so we can use the new ignore_directories feature
+# gazelle:exclude .idea
+# gazelle:exclude **/bin
+# gazelle:exclude **/obj
+
 gazelle_binary(
     name = "root_gazelle",
     languages = DEFAULT_LANGUAGES + [
         # "@external_repository//language/gazelle",  # External languages can be added here.
+        "//tools/gazelle/rules_dotnet",
     ],
     visibility = ["//visibility:public"],
 )

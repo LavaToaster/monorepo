@@ -1,0 +1,15 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_library")
+
+csharp_library(
+    name = "Bruh.Lib",
+    srcs = [
+        "Class1.cs",
+        "Extension/FancyExtension.cs",
+    ],
+    target_frameworks = ["net8.0"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@nuget//faker.net",
+        "@nuget//microsoft.net.stringtools",
+    ],
+)

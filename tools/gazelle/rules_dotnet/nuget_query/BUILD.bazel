@@ -1,0 +1,20 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary")
+
+csharp_binary(
+    name = "nuget_query",
+    srcs = [
+        "Models/BazelNugetPackage.cs",
+        "Models/ProgramOutput.cs",
+        "PackageAnalyzer.cs",
+        "Program.cs",
+    ],
+    target_frameworks = ["net8.0"],
+    deps = [
+        "@nuget//nuget.frameworks",
+        "@nuget//nuget.packagemanagement",
+        "@nuget//nuget.packaging",
+        "@nuget//nuget.projectmodel",
+        "@nuget//nuget.versioning",
+        "@nuget//system.commandline",
+    ],
+)
