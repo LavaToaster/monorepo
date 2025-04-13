@@ -1,0 +1,28 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary")
+
+csharp_binary(
+    name = "nuget2bazel",
+    srcs = [
+        "src/CommandLine/CommandHandler.cs",
+        "src/CommandLine/CommandLineOptions.cs",
+        "src/Core/BazelFileGenerator.cs",
+        "src/Core/NugetPackageAnalyzer.cs",
+        "src/Models/DirectDependency.cs",
+        "src/Models/RulesDotnetNugetPackage.cs",
+        "src/Program.cs",
+        "src/Services/PackageDownloadService.cs",
+        "src/Services/PackageMetadataService.cs",
+        "src/Utilities/FrameworkUtilities.cs",
+        "src/Utilities/HashUtilities.cs",
+    ],
+    target_frameworks = ["net8.0"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@nuget//nuget.frameworks",
+        "@nuget//nuget.packagemanagement",
+        "@nuget//nuget.packaging",
+        "@nuget//nuget.projectmodel",
+        "@nuget//nuget.versioning",
+        "@nuget//system.commandline",
+    ],
+)

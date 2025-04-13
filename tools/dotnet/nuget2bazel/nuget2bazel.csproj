@@ -5,6 +5,9 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>nuget2bazel</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <Description>A tool to convert NuGet package dependencies to Bazel build definitions</Description>
     </PropertyGroup>
 
     <ItemGroup>
