@@ -6,7 +6,7 @@ csharp_nunit_test(
     target_frameworks = ["net8.0"],
     deps = [
         "@nuget//coverlet.collector/6.0.0",
-        "@nuget//microsoft.net.test.sdk/",
+        "@nuget//microsoft.net.test.sdk/17.8.0",
         "@nuget//nunit.analyzers/3.9.0",
         "@nuget//nunit/3.14.0",
         "@nuget//nunit3testadapter/4.5.0",
