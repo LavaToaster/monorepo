@@ -88,6 +88,8 @@ func (l *dotnetLang) addProjectRules(args language.GenerateArgs, result *languag
 	if projectType == CSharpBinaryKind && projectFile.Sdk == "Microsoft.NET.Sdk.Web" {
 		dotnetRule.SetAttr("project_sdk", "web")
 		addAppsettingsFiles(dotnetRule)
+
+		// TODO: Add publish rule
 	}
 
 	if projectType == CSharpLibraryKind {
