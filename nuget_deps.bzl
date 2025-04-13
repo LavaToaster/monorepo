@@ -7,10 +7,10 @@ def nuget_packages():
       name = "nuget",
       packages = [
       {
-        "id": "System.Text.Json",
-        "name": "System.Text.Json",
-        "version": "9.0.3",
-        "sha512": "sha512-qGxfH+oyDbYxUCG19mu28qdKH26E87n/5gh5AuQzqBpp7H5gQ1W12jOMGz2x3l50ILqjVmkvF3a72uzLHqC7tQ==",
+        "id": "coverlet.collector",
+        "name": "coverlet.collector",
+        "version": "6.0.0",
+        "sha512": "sha512-h3XxqCZ9RPbsQrJqyex+4pzMbeUEs56YbgIs6xLA52P+sQeZwy/0Em+yNTpsx1BLQlN2BEZN5WggAmKAmmfe4A==",
         "sources": [
           "https://api.nuget.org/v3/index.json"
         ],
@@ -23,14 +23,8 @@ def nuget_packages():
           "netstandard1.4": [],
           "netstandard1.5": [],
           "netstandard1.6": [],
-          "netstandard2.0": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "netstandard2.1": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
           "net11": [],
           "net20": [],
           "net30": [],
@@ -41,68 +35,23 @@ def nuget_packages():
           "net451": [],
           "net452": [],
           "net46": [],
-          "net461": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "net462": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "net47": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "net471": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "net472": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "net48": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
           "netcoreapp1.0": [],
           "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "netcoreapp2.1": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "netcoreapp2.2": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "netcoreapp3.0": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "netcoreapp3.1": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "net5.0": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "net6.0": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "net7.0": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
-          "net8.0": [
-            "System.IO.Pipelines",
-            "System.Text.Encodings.Web"
-          ],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
           "net9.0": []
         },
         "targeting_pack_overrides": [],
@@ -196,1338 +145,6 @@ def nuget_packages():
         "framework_list": []
       },
       {
-        "id": "Microsoft.NETCore.Platforms",
-        "name": "Microsoft.NETCore.Platforms",
-        "version": "1.1.0",
-        "sha512": "sha512-a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NETStandard.Library",
-        "name": "NETStandard.Library",
-        "version": "2.0.3",
-        "sha512": "sha512-548M6mnBSJWxsIlkQHfbzoYxpiYFXZZSL00p4GHYv8PkiqFBnnT68mW5mGEsA/ch9fDO9GkPgkFQpWiXZN7mAQ==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.2": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.3": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.4": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.5": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.6": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard2.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard2.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net451": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net452": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net46": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net461": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net462": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net47": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net471": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net472": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net48": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp1.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp1.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp2.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp2.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp2.2": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp3.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp3.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net5.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net6.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net7.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net8.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net9.0": [
-            "Microsoft.NETCore.Platforms"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "System.IO.Pipelines",
-        "name": "System.IO.Pipelines",
-        "version": "9.0.3",
-        "sha512": "sha512-WBNguCpHYifRaU0qUdN8IIuuzkWmHaCLHguc6lzUh/V88vGP2wklcfPt629qllHWxsXGcLRJuNkkEHmtmTVPbw==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "System.Text.Encodings.Web",
-        "name": "System.Text.Encodings.Web",
-        "version": "9.0.3",
-        "sha512": "sha512-R/3v9Dp7qg3/AnEfShT6/gusGkps/8bE5ZSnWHEpB5Ix2h3ryyBJdSTFtqEqKDJHyu3F3oxDYEz6SaaqppgBVw==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Microsoft.NET.StringTools",
-        "name": "Microsoft.NET.StringTools",
-        "version": "17.13.9",
-        "sha512": "sha512-k0u9SJVBwmr8DJ5t72oJtsAWlqPh0ARU7NUkn+1nPGkxaBClR4SGvV++IlX1P7JCHvciY7SAyOhUhhN1i88w1g==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netstandard2.1": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net48": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp2.1": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp2.2": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp3.0": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp3.1": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net5.0": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net6.0": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net7.0": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net8.0": [
-            "System.Memory",
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "System.Memory",
-        "name": "System.Memory",
-        "version": "4.5.5",
-        "sha512": "sha512-6MjlNsl7lKw0Q8lAsw2tQ89ul9x6jD2Yk3EEj+dOFoYGOE9eAUO9wNhvd4O/n97oQXlkyzqKXXUnE+kLElFy3A==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netstandard1.2": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netstandard1.3": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netstandard1.4": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netstandard1.5": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netstandard1.6": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netstandard2.0": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netstandard2.1": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net451": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net452": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net46": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net461": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net462": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net47": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net471": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net472": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net48": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp1.0": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp1.1": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp2.0": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "System.Runtime.CompilerServices.Unsafe",
-        "name": "System.Runtime.CompilerServices.Unsafe",
-        "version": "6.0.0",
-        "sha512": "sha512-1AVzAb5OxJNvJLnOADtexNmWgattm2XVOT3TjQTN7Dd4SqoSwai1CsN2fth42uQldJSQdz/sAec0+TzxBFgisw==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "coverlet.collector",
-        "name": "coverlet.collector",
-        "version": "6.0.0",
-        "sha512": "sha512-h3XxqCZ9RPbsQrJqyex+4pzMbeUEs56YbgIs6xLA52P+sQeZwy/0Em+yNTpsx1BLQlN2BEZN5WggAmKAmmfe4A==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "microsoft.net.test.sdk",
-        "name": "microsoft.net.test.sdk",
-        "version": "17.8.0",
-        "sha512": "sha512-8hHyYQE3zRFGIb1shBjlKmQUmvN8F2p59BiJL6221dujHqRiKpXGflCzKpL7Gx1df7mAUCxclXDcxMMljGeH6Q==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [
-            "Microsoft.CodeCoverage"
-          ],
-          "net47": [
-            "Microsoft.CodeCoverage"
-          ],
-          "net471": [
-            "Microsoft.CodeCoverage"
-          ],
-          "net472": [
-            "Microsoft.CodeCoverage"
-          ],
-          "net48": [
-            "Microsoft.CodeCoverage"
-          ],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [
-            "Microsoft.TestPlatform.TestHost",
-            "Microsoft.CodeCoverage"
-          ],
-          "net5.0": [
-            "Microsoft.TestPlatform.TestHost",
-            "Microsoft.CodeCoverage"
-          ],
-          "net6.0": [
-            "Microsoft.TestPlatform.TestHost",
-            "Microsoft.CodeCoverage"
-          ],
-          "net7.0": [
-            "Microsoft.TestPlatform.TestHost",
-            "Microsoft.CodeCoverage"
-          ],
-          "net8.0": [
-            "Microsoft.TestPlatform.TestHost",
-            "Microsoft.CodeCoverage"
-          ],
-          "net9.0": [
-            "Microsoft.TestPlatform.TestHost",
-            "Microsoft.CodeCoverage"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NUnit",
-        "name": "NUnit",
-        "version": "3.14.0",
-        "sha512": "sha512-XXEZJblHyeSp9T9rXXabxKcC79crz/a0/k/lGnJFRKUmbQIxf9tf5eMS+STOvjFUnl7rLFeBycLzXD5OMa40hA==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [
-            "NETStandard.Library"
-          ],
-          "netstandard2.1": [
-            "NETStandard.Library"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "NETStandard.Library"
-          ],
-          "netcoreapp2.1": [
-            "NETStandard.Library"
-          ],
-          "netcoreapp2.2": [
-            "NETStandard.Library"
-          ],
-          "netcoreapp3.0": [
-            "NETStandard.Library"
-          ],
-          "netcoreapp3.1": [
-            "NETStandard.Library"
-          ],
-          "net5.0": [
-            "NETStandard.Library"
-          ],
-          "net6.0": [
-            "NETStandard.Library"
-          ],
-          "net7.0": [
-            "NETStandard.Library"
-          ],
-          "net8.0": [
-            "NETStandard.Library"
-          ],
-          "net9.0": [
-            "NETStandard.Library"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NUnit.Analyzers",
-        "name": "NUnit.Analyzers",
-        "version": "3.9.0",
-        "sha512": "sha512-icMRFavpWwVs54ljJX0oZ3n4p16+/u0yPk3CJNiD0q9WGvq6NGzejV/r7GyK3PMSfzaWKGqiOfPpnxk4zors+Q==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NUnit3TestAdapter",
-        "name": "NUnit3TestAdapter",
-        "version": "4.5.0",
-        "sha512": "sha512-vjL9Zyw6sYvJSPem2cQfeb2rwf2NK2rZEGwUSZs1phPr8FpyCVmq5FB8LMEK2rReefSKpzHGUGxxbTABk9aRVA==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Microsoft.CodeCoverage",
-        "name": "Microsoft.CodeCoverage",
-        "version": "17.8.0",
-        "sha512": "sha512-u/tE4BA4x33DPBdUeMXxEHvaI1Ns/CEsFAYDhcXkEUVBFVBGL2ZlkkiDeI+/Zkd9L1F6yyjFH61TwPiVzuwojA==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Microsoft.TestPlatform.ObjectModel",
-        "name": "Microsoft.TestPlatform.ObjectModel",
-        "version": "17.8.0",
-        "sha512": "sha512-FxGcRy/Yf/chZ3+SqAFpPqtToYl1ghUMJqYEKcmesXZGKOe6iVtA47ELntwA+AOxgxam/ckG/+VNvS0ErGPbMw==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "netstandard2.1": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net462": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net47": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net471": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net472": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net48": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "netcoreapp2.1": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "netcoreapp2.2": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "netcoreapp3.0": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "netcoreapp3.1": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net5.0": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net6.0": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net7.0": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net8.0": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ],
-          "net9.0": [
-            "System.Reflection.Metadata",
-            "NuGet.Frameworks"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Microsoft.TestPlatform.TestHost",
-        "name": "Microsoft.TestPlatform.TestHost",
-        "version": "17.8.0",
-        "sha512": "sha512-OfsVSf0j/Cx7T1UlBD/BFSuMYsyBOojJcB8zpmYEHGaQ2t1FWJnSR/715t83LRfwgdYJiDkIYAeywQYY4Yeseg==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [
-            "Microsoft.TestPlatform.ObjectModel",
-            "Newtonsoft.Json"
-          ],
-          "net5.0": [
-            "Microsoft.TestPlatform.ObjectModel",
-            "Newtonsoft.Json"
-          ],
-          "net6.0": [
-            "Microsoft.TestPlatform.ObjectModel",
-            "Newtonsoft.Json"
-          ],
-          "net7.0": [
-            "Microsoft.TestPlatform.ObjectModel",
-            "Newtonsoft.Json"
-          ],
-          "net8.0": [
-            "Microsoft.TestPlatform.ObjectModel",
-            "Newtonsoft.Json"
-          ],
-          "net9.0": [
-            "Microsoft.TestPlatform.ObjectModel",
-            "Newtonsoft.Json"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NETStandard.Library",
-        "name": "NETStandard.Library",
-        "version": "2.0.0",
-        "sha512": "sha512-49ZAcrnNn56GIJwGoiaI7NpwcEJ8mjUyfSqVYIJMDhOBzPe8HSHS74swF2H0v8fzj7pxLfcYjS9P5PdIqsTQxw==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.2": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.3": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.4": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.5": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard1.6": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard2.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netstandard2.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net451": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net452": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net46": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net461": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net462": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net47": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net471": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net472": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net48": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp1.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp1.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp2.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp2.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp2.2": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp3.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "netcoreapp3.1": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net5.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net6.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net7.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net8.0": [
-            "Microsoft.NETCore.Platforms"
-          ],
-          "net9.0": [
-            "Microsoft.NETCore.Platforms"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Newtonsoft.Json",
-        "name": "Newtonsoft.Json",
-        "version": "13.0.1",
-        "sha512": "sha512-g3MbZi6vBTeaI/hEbvR7vBETSd1DWLe9i1E4P+nPY34v5i94zqUqDXvdWC3G+7tYN9SnsdU9zzegrnRz4h7nsQ==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.1": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.2": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.3": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.4": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.5": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.6": [
-            "NETStandard.Library"
-          ],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [
-            "NETStandard.Library"
-          ],
-          "netcoreapp1.1": [
-            "NETStandard.Library"
-          ],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NuGet.Frameworks",
-        "name": "NuGet.Frameworks",
-        "version": "6.5.0",
-        "sha512": "sha512-P5diavAY+psD8GdRBUvixOjb0NUyneIWYrNvMzaEmDi/WvfTchZD+qbqkJNfg2z1AmYVc5Uxds/zPU2CnZU9Vg==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "System.Reflection.Metadata",
-        "name": "System.Reflection.Metadata",
-        "version": "1.6.0",
-        "sha512": "sha512-9SJ2Zu3Gux2ni4qOhqaOm9ZHyqLsahWAwUpKXh/lz9472vDYwj3CEMQFpV+Dzrat0amtqxSdwGWzjP3cmwG6IA==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.2": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.3": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.4": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.5": [
-            "NETStandard.Library"
-          ],
-          "netstandard1.6": [
-            "NETStandard.Library"
-          ],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [
-            "NETStandard.Library"
-          ],
-          "netcoreapp1.1": [
-            "NETStandard.Library"
-          ],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
         "id": "Microsoft.AspNetCore.OpenApi",
         "name": "Microsoft.AspNetCore.OpenApi",
         "version": "8.0.8",
@@ -1583,997 +200,10 @@ def nuget_packages():
         "framework_list": []
       },
       {
-        "id": "Swashbuckle.AspNetCore",
-        "name": "Swashbuckle.AspNetCore",
-        "version": "6.4.0",
-        "sha512": "sha512-rR2w3R4TuiAxTslJSmuM56RKfUMpV5pOOu490vTgQGwgJlAvydMqpVQdVaQJhn8K2URc3101WPnHqIjxFo3L4g==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "netstandard2.1": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net462": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net47": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net471": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net472": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net48": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "netcoreapp2.1": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "netcoreapp2.2": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "netcoreapp3.0": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "netcoreapp3.1": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net5.0": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net6.0": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net7.0": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net8.0": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ],
-          "net9.0": [
-            "Swashbuckle.AspNetCore.Swagger",
-            "Swashbuckle.AspNetCore.SwaggerGen",
-            "Swashbuckle.AspNetCore.SwaggerUI",
-            "Microsoft.Extensions.ApiDescription.Server"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Microsoft.Extensions.ApiDescription.Server",
-        "name": "Microsoft.Extensions.ApiDescription.Server",
-        "version": "6.0.5",
-        "sha512": "sha512-o76LJqs3WNVH3rVgykGP8jjVw9oHuuW96jH/xYdoN9s1bgpbVUkyhsg4bz4a1qpbx5YNe5EoEZywtu/zFLYLHA==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Microsoft.OpenApi",
-        "name": "Microsoft.OpenApi",
-        "version": "1.4.3",
-        "sha512": "sha512-z+VqPNc9eVVPBtXUTcmjIhDQP1fp5y0L0ICWeoz6+o56A8ASeISgc8muFkYOT7gsZVcErvcHtYCui38p658vog==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Swashbuckle.AspNetCore.Swagger",
-        "name": "Swashbuckle.AspNetCore.Swagger",
-        "version": "6.4.0",
-        "sha512": "sha512-2VUuzye/ELIPDTH7Jmf51631ZT9I6JAxoyQLX9nMWzrxR+cC2WqxSEZRtmkFVmtFE5eQtqh7p0gOMYVW9KNDKw==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [
-            "Microsoft.OpenApi"
-          ],
-          "netstandard2.1": [
-            "Microsoft.OpenApi"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [
-            "Microsoft.OpenApi"
-          ],
-          "net462": [
-            "Microsoft.OpenApi"
-          ],
-          "net47": [
-            "Microsoft.OpenApi"
-          ],
-          "net471": [
-            "Microsoft.OpenApi"
-          ],
-          "net472": [
-            "Microsoft.OpenApi"
-          ],
-          "net48": [
-            "Microsoft.OpenApi"
-          ],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "Microsoft.OpenApi"
-          ],
-          "netcoreapp2.1": [
-            "Microsoft.OpenApi"
-          ],
-          "netcoreapp2.2": [
-            "Microsoft.OpenApi"
-          ],
-          "netcoreapp3.0": [
-            "Microsoft.OpenApi"
-          ],
-          "netcoreapp3.1": [
-            "Microsoft.OpenApi"
-          ],
-          "net5.0": [
-            "Microsoft.OpenApi"
-          ],
-          "net6.0": [
-            "Microsoft.OpenApi"
-          ],
-          "net7.0": [
-            "Microsoft.OpenApi"
-          ],
-          "net8.0": [
-            "Microsoft.OpenApi"
-          ],
-          "net9.0": [
-            "Microsoft.OpenApi"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Swashbuckle.AspNetCore.SwaggerGen",
-        "name": "Swashbuckle.AspNetCore.SwaggerGen",
-        "version": "6.4.0",
-        "sha512": "sha512-6sQErRrlfqs2sxH+M4bWTYB3nOoij7d9XysPMtCePuEQLrLfu/3YUgapcRy5XEHtoZh/ckA9FrCe8pWOLKRUUQ==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "netstandard2.1": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net462": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net47": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net471": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net472": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net48": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "netcoreapp2.1": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "netcoreapp2.2": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "netcoreapp3.0": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "netcoreapp3.1": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net5.0": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net6.0": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net7.0": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net8.0": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ],
-          "net9.0": [
-            "Swashbuckle.AspNetCore.Swagger"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "Swashbuckle.AspNetCore.SwaggerUI",
-        "name": "Swashbuckle.AspNetCore.SwaggerUI",
-        "version": "6.4.0",
-        "sha512": "sha512-8sbWcFHselwYOGRx0Kp6kKt4ys/jJUG+pwrXxxvHSYQc/xTGnOU+ldLV7+MsOXvM64rMopXMNftJe2cOEDSMQA==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NuGet.Frameworks",
-        "name": "NuGet.Frameworks",
-        "version": "6.13.2",
-        "sha512": "sha512-oMoVceD5WtSBcOf79qAfkppwhlIZcB7/Qu4j/M8AGZFZP+JrU/9KScm50rCi+MTaCC+rIFkhjcBpWZx2NrP4bg==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NuGet.PackageManagement",
-        "name": "NuGet.PackageManagement",
-        "version": "6.13.2",
-        "sha512": "sha512-QvyLcwf60skRhbqe6L94uToKpCqE4dCOlCoE5IM1jpzW8rj4z6RRlCEa8oaxYLrJ3y4UyJSfa+VJb8fJwBvk4g==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "netstandard2.1": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net462": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net47": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net471": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net472": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt"
-          ],
-          "net48": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt"
-          ],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "netcoreapp2.1": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "netcoreapp2.2": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "netcoreapp3.0": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "netcoreapp3.1": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net5.0": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net6.0": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net7.0": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net8.0": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ],
-          "net9.0": [
-            "NuGet.Commands",
-            "NuGet.Resolver",
-            "Microsoft.CSharp",
-            "Microsoft.Web.Xdt",
-            "System.ComponentModel.Composition"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NuGet.Packaging",
-        "name": "NuGet.Packaging",
-        "version": "6.13.2",
-        "sha512": "sha512-MwyLs+yAE+Mw7TvjA21vMJKELsn+pgEEWfWBuuvqapNLFqew83IkALbRhbAV24ICTuUHyUYDVAT20gvwrZz4WQ==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "netstandard2.1": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net462": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net47": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net471": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net472": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json"
-          ],
-          "net48": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json"
-          ],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "netcoreapp2.1": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "netcoreapp2.2": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "netcoreapp3.0": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "netcoreapp3.1": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net5.0": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net6.0": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net7.0": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net8.0": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ],
-          "net9.0": [
-            "NuGet.Configuration",
-            "NuGet.Versioning",
-            "Newtonsoft.Json",
-            "System.Formats.Asn1",
-            "System.Security.Cryptography.Pkcs"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NuGet.ProjectModel",
-        "name": "NuGet.ProjectModel",
-        "version": "6.13.2",
-        "sha512": "sha512-tRHEjdqur61IyWdxKWoylffq2yPYIr46ST45cNP1IvwpRa7CQUCHXVUup26eOJIzf9PXVP06xNHUGpZP/qU5tA==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "netstandard2.1": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net462": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net47": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net471": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net472": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net48": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "netcoreapp2.1": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "netcoreapp2.2": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "netcoreapp3.0": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "netcoreapp3.1": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net5.0": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net6.0": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net7.0": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net8.0": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ],
-          "net9.0": [
-            "NuGet.DependencyResolver.Core",
-            "System.Collections.Immutable"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "NuGet.Versioning",
-        "name": "NuGet.Versioning",
-        "version": "6.13.2",
-        "sha512": "sha512-IFS6Ojg1pF+T8mx7TjaMst3eEBQnIy/y4wuYHCs3YZE440sNliAyjH0WMMUvBp/tJJteLKiQY+fqOaGT+Q6AHQ==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [],
-          "netstandard1.2": [],
-          "netstandard1.3": [],
-          "netstandard1.4": [],
-          "netstandard1.5": [],
-          "netstandard1.6": [],
-          "netstandard2.0": [],
-          "netstandard2.1": [],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [],
-          "netcoreapp1.1": [],
-          "netcoreapp2.0": [],
-          "netcoreapp2.1": [],
-          "netcoreapp2.2": [],
-          "netcoreapp3.0": [],
-          "netcoreapp3.1": [],
-          "net5.0": [],
-          "net6.0": [],
-          "net7.0": [],
-          "net8.0": [],
-          "net9.0": []
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "System.CommandLine",
-        "name": "System.CommandLine",
-        "version": "2.0.0-beta4.22272.1",
-        "sha512": "sha512-l5p+Zrop4XvFvsQukm7RU2LiOuQD5JjJVeCd/8TTuqFHd6BvleJdWR/JdXoOqhjeueRmKhyhZj+jAPUJpKA4PA==",
+        "id": "Microsoft.CodeCoverage",
+        "name": "Microsoft.CodeCoverage",
+        "version": "17.8.0",
+        "sha512": "sha512-u/tE4BA4x33DPBdUeMXxEHvaI1Ns/CEsFAYDhcXkEUVBFVBGL2ZlkkiDeI+/Zkd9L1F6yyjFH61TwPiVzuwojA==",
         "sources": [
           "https://api.nuget.org/v3/index.json"
         ],
@@ -2990,6 +620,57 @@ def nuget_packages():
         "framework_list": []
       },
       {
+        "id": "Microsoft.Extensions.ApiDescription.Server",
+        "name": "Microsoft.Extensions.ApiDescription.Server",
+        "version": "6.0.5",
+        "sha512": "sha512-o76LJqs3WNVH3rVgykGP8jjVw9oHuuW96jH/xYdoN9s1bgpbVUkyhsg4bz4a1qpbx5YNe5EoEZywtu/zFLYLHA==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
         "id": "Microsoft.Extensions.FileProviders.Abstractions",
         "name": "Microsoft.Extensions.FileProviders.Abstractions",
         "version": "6.0.0",
@@ -3215,6 +896,226 @@ def nuget_packages():
         "framework_list": []
       },
       {
+        "id": "Microsoft.NET.StringTools",
+        "name": "Microsoft.NET.StringTools",
+        "version": "17.13.9",
+        "sha512": "sha512-k0u9SJVBwmr8DJ5t72oJtsAWlqPh0ARU7NUkn+1nPGkxaBClR4SGvV++IlX1P7JCHvciY7SAyOhUhhN1i88w1g==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard2.1": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net48": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp2.1": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp2.2": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp3.0": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp3.1": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net5.0": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net6.0": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net7.0": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net8.0": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "microsoft.net.test.sdk",
+        "name": "microsoft.net.test.sdk",
+        "version": "17.8.0",
+        "sha512": "sha512-8hHyYQE3zRFGIb1shBjlKmQUmvN8F2p59BiJL6221dujHqRiKpXGflCzKpL7Gx1df7mAUCxclXDcxMMljGeH6Q==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [
+            "Microsoft.CodeCoverage"
+          ],
+          "net47": [
+            "Microsoft.CodeCoverage"
+          ],
+          "net471": [
+            "Microsoft.CodeCoverage"
+          ],
+          "net472": [
+            "Microsoft.CodeCoverage"
+          ],
+          "net48": [
+            "Microsoft.CodeCoverage"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [
+            "Microsoft.TestPlatform.TestHost",
+            "Microsoft.CodeCoverage"
+          ],
+          "net5.0": [
+            "Microsoft.TestPlatform.TestHost",
+            "Microsoft.CodeCoverage"
+          ],
+          "net6.0": [
+            "Microsoft.TestPlatform.TestHost",
+            "Microsoft.CodeCoverage"
+          ],
+          "net7.0": [
+            "Microsoft.TestPlatform.TestHost",
+            "Microsoft.CodeCoverage"
+          ],
+          "net8.0": [
+            "Microsoft.TestPlatform.TestHost",
+            "Microsoft.CodeCoverage"
+          ],
+          "net9.0": [
+            "Microsoft.TestPlatform.TestHost",
+            "Microsoft.CodeCoverage"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "Microsoft.NETCore.Platforms",
+        "name": "Microsoft.NETCore.Platforms",
+        "version": "1.1.0",
+        "sha512": "sha512-a/iSwnRZb+LHFk49hQOyThh/ZNC3vsbZsF65XwQIb863qF6msmhdQtxGXFL28Ob2NsCz/drEj28BJd/YPpLRBg==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
         "id": "Microsoft.NETCore.Platforms",
         "name": "Microsoft.NETCore.Platforms",
         "version": "2.0.0",
@@ -3317,6 +1218,231 @@ def nuget_packages():
         "framework_list": []
       },
       {
+        "id": "Microsoft.OpenApi",
+        "name": "Microsoft.OpenApi",
+        "version": "1.4.3",
+        "sha512": "sha512-z+VqPNc9eVVPBtXUTcmjIhDQP1fp5y0L0ICWeoz6+o56A8ASeISgc8muFkYOT7gsZVcErvcHtYCui38p658vog==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "Microsoft.TestPlatform.ObjectModel",
+        "name": "Microsoft.TestPlatform.ObjectModel",
+        "version": "17.8.0",
+        "sha512": "sha512-FxGcRy/Yf/chZ3+SqAFpPqtToYl1ghUMJqYEKcmesXZGKOe6iVtA47ELntwA+AOxgxam/ckG/+VNvS0ErGPbMw==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "netstandard2.1": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net462": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net47": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net471": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net472": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net48": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "netcoreapp2.1": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "netcoreapp2.2": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "netcoreapp3.0": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "netcoreapp3.1": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net5.0": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net6.0": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net7.0": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net8.0": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ],
+          "net9.0": [
+            "System.Reflection.Metadata",
+            "NuGet.Frameworks"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "Microsoft.TestPlatform.TestHost",
+        "name": "Microsoft.TestPlatform.TestHost",
+        "version": "17.8.0",
+        "sha512": "sha512-OfsVSf0j/Cx7T1UlBD/BFSuMYsyBOojJcB8zpmYEHGaQ2t1FWJnSR/715t83LRfwgdYJiDkIYAeywQYY4Yeseg==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [
+            "Microsoft.TestPlatform.ObjectModel",
+            "Newtonsoft.Json"
+          ],
+          "net5.0": [
+            "Microsoft.TestPlatform.ObjectModel",
+            "Newtonsoft.Json"
+          ],
+          "net6.0": [
+            "Microsoft.TestPlatform.ObjectModel",
+            "Newtonsoft.Json"
+          ],
+          "net7.0": [
+            "Microsoft.TestPlatform.ObjectModel",
+            "Newtonsoft.Json"
+          ],
+          "net8.0": [
+            "Microsoft.TestPlatform.ObjectModel",
+            "Newtonsoft.Json"
+          ],
+          "net9.0": [
+            "Microsoft.TestPlatform.ObjectModel",
+            "Newtonsoft.Json"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
         "id": "Microsoft.Web.Xdt",
         "name": "Microsoft.Web.Xdt",
         "version": "3.0.0",
@@ -3353,6 +1479,301 @@ def nuget_packages():
           "net48": [],
           "netcoreapp1.0": [],
           "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "NETStandard.Library",
+        "name": "NETStandard.Library",
+        "version": "2.0.0",
+        "sha512": "sha512-49ZAcrnNn56GIJwGoiaI7NpwcEJ8mjUyfSqVYIJMDhOBzPe8HSHS74swF2H0v8fzj7pxLfcYjS9P5PdIqsTQxw==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.2": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.3": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.4": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.5": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.6": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard2.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard2.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net451": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net452": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net46": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net461": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net462": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net47": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net471": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net472": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net48": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp1.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp1.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp2.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp2.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp2.2": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp3.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp3.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net5.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net6.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net7.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net8.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net9.0": [
+            "Microsoft.NETCore.Platforms"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "NETStandard.Library",
+        "name": "NETStandard.Library",
+        "version": "2.0.3",
+        "sha512": "sha512-548M6mnBSJWxsIlkQHfbzoYxpiYFXZZSL00p4GHYv8PkiqFBnnT68mW5mGEsA/ch9fDO9GkPgkFQpWiXZN7mAQ==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.2": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.3": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.4": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.5": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard1.6": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard2.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netstandard2.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net451": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net452": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net46": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net461": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net462": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net47": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net471": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net472": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net48": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp1.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp1.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp2.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp2.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp2.2": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp3.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "netcoreapp3.1": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net5.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net6.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net7.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net8.0": [
+            "Microsoft.NETCore.Platforms"
+          ],
+          "net9.0": [
+            "Microsoft.NETCore.Platforms"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "Newtonsoft.Json",
+        "name": "Newtonsoft.Json",
+        "version": "13.0.1",
+        "sha512": "sha512-g3MbZi6vBTeaI/hEbvR7vBETSd1DWLe9i1E4P+nPY34v5i94zqUqDXvdWC3G+7tYN9SnsdU9zzegrnRz4h7nsQ==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.1": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.2": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.3": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.4": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.5": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.6": [
+            "NETStandard.Library"
+          ],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [
+            "NETStandard.Library"
+          ],
+          "netcoreapp1.1": [
+            "NETStandard.Library"
+          ],
           "netcoreapp2.0": [],
           "netcoreapp2.1": [],
           "netcoreapp2.2": [],
@@ -3996,6 +2417,108 @@ def nuget_packages():
         "framework_list": []
       },
       {
+        "id": "NuGet.Frameworks",
+        "name": "NuGet.Frameworks",
+        "version": "6.13.2",
+        "sha512": "sha512-oMoVceD5WtSBcOf79qAfkppwhlIZcB7/Qu4j/M8AGZFZP+JrU/9KScm50rCi+MTaCC+rIFkhjcBpWZx2NrP4bg==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "NuGet.Frameworks",
+        "name": "NuGet.Frameworks",
+        "version": "6.5.0",
+        "sha512": "sha512-P5diavAY+psD8GdRBUvixOjb0NUyneIWYrNvMzaEmDi/WvfTchZD+qbqkJNfg2z1AmYVc5Uxds/zPU2CnZU9Vg==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
         "id": "NuGet.LibraryModel",
         "name": "NuGet.LibraryModel",
         "version": "6.13.2",
@@ -4112,6 +2635,423 @@ def nuget_packages():
           "net9.0": [
             "NuGet.Common",
             "NuGet.Versioning",
+            "System.Collections.Immutable"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "NuGet.PackageManagement",
+        "name": "NuGet.PackageManagement",
+        "version": "6.13.2",
+        "sha512": "sha512-QvyLcwf60skRhbqe6L94uToKpCqE4dCOlCoE5IM1jpzW8rj4z6RRlCEa8oaxYLrJ3y4UyJSfa+VJb8fJwBvk4g==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "netstandard2.1": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net462": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net47": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net471": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net472": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt"
+          ],
+          "net48": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "netcoreapp2.1": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "netcoreapp2.2": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "netcoreapp3.0": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "netcoreapp3.1": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net5.0": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net6.0": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net7.0": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net8.0": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ],
+          "net9.0": [
+            "NuGet.Commands",
+            "NuGet.Resolver",
+            "Microsoft.CSharp",
+            "Microsoft.Web.Xdt",
+            "System.ComponentModel.Composition"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "NuGet.Packaging",
+        "name": "NuGet.Packaging",
+        "version": "6.13.2",
+        "sha512": "sha512-MwyLs+yAE+Mw7TvjA21vMJKELsn+pgEEWfWBuuvqapNLFqew83IkALbRhbAV24ICTuUHyUYDVAT20gvwrZz4WQ==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "netstandard2.1": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net462": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net47": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net471": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net472": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json"
+          ],
+          "net48": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "netcoreapp2.1": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "netcoreapp2.2": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "netcoreapp3.0": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "netcoreapp3.1": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net5.0": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net6.0": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net7.0": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net8.0": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ],
+          "net9.0": [
+            "NuGet.Configuration",
+            "NuGet.Versioning",
+            "Newtonsoft.Json",
+            "System.Formats.Asn1",
+            "System.Security.Cryptography.Pkcs"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "NuGet.ProjectModel",
+        "name": "NuGet.ProjectModel",
+        "version": "6.13.2",
+        "sha512": "sha512-tRHEjdqur61IyWdxKWoylffq2yPYIr46ST45cNP1IvwpRa7CQUCHXVUup26eOJIzf9PXVP06xNHUGpZP/qU5tA==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "netstandard2.1": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net462": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net47": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net471": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net472": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net48": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "netcoreapp2.1": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "netcoreapp2.2": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "netcoreapp3.0": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "netcoreapp3.1": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net5.0": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net6.0": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net7.0": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net8.0": [
+            "NuGet.DependencyResolver.Core",
+            "System.Collections.Immutable"
+          ],
+          "net9.0": [
+            "NuGet.DependencyResolver.Core",
             "System.Collections.Immutable"
           ]
         },
@@ -4293,6 +3233,681 @@ def nuget_packages():
         "framework_list": []
       },
       {
+        "id": "NuGet.Versioning",
+        "name": "NuGet.Versioning",
+        "version": "6.13.2",
+        "sha512": "sha512-IFS6Ojg1pF+T8mx7TjaMst3eEBQnIy/y4wuYHCs3YZE440sNliAyjH0WMMUvBp/tJJteLKiQY+fqOaGT+Q6AHQ==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "NUnit.Analyzers",
+        "name": "NUnit.Analyzers",
+        "version": "3.9.0",
+        "sha512": "sha512-icMRFavpWwVs54ljJX0oZ3n4p16+/u0yPk3CJNiD0q9WGvq6NGzejV/r7GyK3PMSfzaWKGqiOfPpnxk4zors+Q==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "NUnit",
+        "name": "NUnit",
+        "version": "3.14.0",
+        "sha512": "sha512-XXEZJblHyeSp9T9rXXabxKcC79crz/a0/k/lGnJFRKUmbQIxf9tf5eMS+STOvjFUnl7rLFeBycLzXD5OMa40hA==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "NETStandard.Library"
+          ],
+          "netstandard2.1": [
+            "NETStandard.Library"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "NETStandard.Library"
+          ],
+          "netcoreapp2.1": [
+            "NETStandard.Library"
+          ],
+          "netcoreapp2.2": [
+            "NETStandard.Library"
+          ],
+          "netcoreapp3.0": [
+            "NETStandard.Library"
+          ],
+          "netcoreapp3.1": [
+            "NETStandard.Library"
+          ],
+          "net5.0": [
+            "NETStandard.Library"
+          ],
+          "net6.0": [
+            "NETStandard.Library"
+          ],
+          "net7.0": [
+            "NETStandard.Library"
+          ],
+          "net8.0": [
+            "NETStandard.Library"
+          ],
+          "net9.0": [
+            "NETStandard.Library"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "NUnit3TestAdapter",
+        "name": "NUnit3TestAdapter",
+        "version": "4.5.0",
+        "sha512": "sha512-vjL9Zyw6sYvJSPem2cQfeb2rwf2NK2rZEGwUSZs1phPr8FpyCVmq5FB8LMEK2rReefSKpzHGUGxxbTABk9aRVA==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "Swashbuckle.AspNetCore.Swagger",
+        "name": "Swashbuckle.AspNetCore.Swagger",
+        "version": "6.4.0",
+        "sha512": "sha512-2VUuzye/ELIPDTH7Jmf51631ZT9I6JAxoyQLX9nMWzrxR+cC2WqxSEZRtmkFVmtFE5eQtqh7p0gOMYVW9KNDKw==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "Microsoft.OpenApi"
+          ],
+          "netstandard2.1": [
+            "Microsoft.OpenApi"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "Microsoft.OpenApi"
+          ],
+          "net462": [
+            "Microsoft.OpenApi"
+          ],
+          "net47": [
+            "Microsoft.OpenApi"
+          ],
+          "net471": [
+            "Microsoft.OpenApi"
+          ],
+          "net472": [
+            "Microsoft.OpenApi"
+          ],
+          "net48": [
+            "Microsoft.OpenApi"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "Microsoft.OpenApi"
+          ],
+          "netcoreapp2.1": [
+            "Microsoft.OpenApi"
+          ],
+          "netcoreapp2.2": [
+            "Microsoft.OpenApi"
+          ],
+          "netcoreapp3.0": [
+            "Microsoft.OpenApi"
+          ],
+          "netcoreapp3.1": [
+            "Microsoft.OpenApi"
+          ],
+          "net5.0": [
+            "Microsoft.OpenApi"
+          ],
+          "net6.0": [
+            "Microsoft.OpenApi"
+          ],
+          "net7.0": [
+            "Microsoft.OpenApi"
+          ],
+          "net8.0": [
+            "Microsoft.OpenApi"
+          ],
+          "net9.0": [
+            "Microsoft.OpenApi"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "Swashbuckle.AspNetCore.SwaggerGen",
+        "name": "Swashbuckle.AspNetCore.SwaggerGen",
+        "version": "6.4.0",
+        "sha512": "sha512-6sQErRrlfqs2sxH+M4bWTYB3nOoij7d9XysPMtCePuEQLrLfu/3YUgapcRy5XEHtoZh/ckA9FrCe8pWOLKRUUQ==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "netstandard2.1": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net462": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net47": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net471": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net472": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net48": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "netcoreapp2.1": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "netcoreapp2.2": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "netcoreapp3.0": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "netcoreapp3.1": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net5.0": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net6.0": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net7.0": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net8.0": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ],
+          "net9.0": [
+            "Swashbuckle.AspNetCore.Swagger"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "Swashbuckle.AspNetCore.SwaggerUI",
+        "name": "Swashbuckle.AspNetCore.SwaggerUI",
+        "version": "6.4.0",
+        "sha512": "sha512-8sbWcFHselwYOGRx0Kp6kKt4ys/jJUG+pwrXxxvHSYQc/xTGnOU+ldLV7+MsOXvM64rMopXMNftJe2cOEDSMQA==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "Swashbuckle.AspNetCore",
+        "name": "Swashbuckle.AspNetCore",
+        "version": "6.4.0",
+        "sha512": "sha512-rR2w3R4TuiAxTslJSmuM56RKfUMpV5pOOu490vTgQGwgJlAvydMqpVQdVaQJhn8K2URc3101WPnHqIjxFo3L4g==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "netstandard2.1": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net462": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net47": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net471": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net472": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net48": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "netcoreapp2.1": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "netcoreapp2.2": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "netcoreapp3.0": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "netcoreapp3.1": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net5.0": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net6.0": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net7.0": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net8.0": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ],
+          "net9.0": [
+            "Swashbuckle.AspNetCore.Swagger",
+            "Swashbuckle.AspNetCore.SwaggerGen",
+            "Swashbuckle.AspNetCore.SwaggerUI",
+            "Microsoft.Extensions.ApiDescription.Server"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "System.Collections.Immutable",
+        "name": "System.Collections.Immutable",
+        "version": "8.0.0",
+        "sha512": "sha512-BXqVkcIrhimvvem6q2ChWkuW6XYYirvb6FlhvuwaMoBqBdpcr4nehJBKP65Tw40UqcUM6oDoODsecM0yjZ6AUw==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard2.1": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net462": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net47": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net471": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net472": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net48": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp2.1": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp2.2": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp3.0": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp3.1": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net5.0": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net6.0": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
         "id": "System.Collections",
         "name": "System.Collections",
         "version": "4.3.0",
@@ -4428,10 +4043,10 @@ def nuget_packages():
         "framework_list": []
       },
       {
-        "id": "System.Collections.Immutable",
-        "name": "System.Collections.Immutable",
-        "version": "8.0.0",
-        "sha512": "sha512-BXqVkcIrhimvvem6q2ChWkuW6XYYirvb6FlhvuwaMoBqBdpcr4nehJBKP65Tw40UqcUM6oDoODsecM0yjZ6AUw==",
+        "id": "System.CommandLine",
+        "name": "System.CommandLine",
+        "version": "2.0.0-beta4.22272.1",
+        "sha512": "sha512-l5p+Zrop4XvFvsQukm7RU2LiOuQD5JjJVeCd/8TTuqFHd6BvleJdWR/JdXoOqhjeueRmKhyhZj+jAPUJpKA4PA==",
         "sources": [
           "https://api.nuget.org/v3/index.json"
         ],
@@ -4444,12 +4059,8 @@ def nuget_packages():
           "netstandard1.4": [],
           "netstandard1.5": [],
           "netstandard1.6": [],
-          "netstandard2.0": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netstandard2.1": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
           "net11": [],
           "net20": [],
           "net30": [],
@@ -4460,47 +4071,21 @@ def nuget_packages():
           "net451": [],
           "net452": [],
           "net46": [],
-          "net461": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net462": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net47": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net471": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net472": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net48": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
           "netcoreapp1.0": [],
           "netcoreapp1.1": [],
-          "netcoreapp2.0": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp2.1": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp2.2": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp3.0": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "netcoreapp3.1": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net5.0": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
-          "net6.0": [
-            "System.Runtime.CompilerServices.Unsafe"
-          ],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
           "net7.0": [],
           "net8.0": [],
           "net9.0": []
@@ -5237,6 +4822,89 @@ def nuget_packages():
         "framework_list": []
       },
       {
+        "id": "System.IO.Pipelines",
+        "name": "System.IO.Pipelines",
+        "version": "9.0.3",
+        "sha512": "sha512-WBNguCpHYifRaU0qUdN8IIuuzkWmHaCLHguc6lzUh/V88vGP2wklcfPt629qllHWxsXGcLRJuNkkEHmtmTVPbw==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "System.Memory"
+          ],
+          "netstandard2.1": [
+            "System.Memory"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "System.Memory"
+          ],
+          "net462": [
+            "System.Memory"
+          ],
+          "net47": [
+            "System.Memory"
+          ],
+          "net471": [
+            "System.Memory"
+          ],
+          "net472": [
+            "System.Memory"
+          ],
+          "net48": [
+            "System.Memory"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "System.Memory"
+          ],
+          "netcoreapp2.1": [
+            "System.Memory"
+          ],
+          "netcoreapp2.2": [
+            "System.Memory"
+          ],
+          "netcoreapp3.0": [
+            "System.Memory"
+          ],
+          "netcoreapp3.1": [
+            "System.Memory"
+          ],
+          "net5.0": [
+            "System.Memory"
+          ],
+          "net6.0": [
+            "System.Memory"
+          ],
+          "net7.0": [
+            "System.Memory"
+          ],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
         "id": "System.IO",
         "name": "System.IO",
         "version": "4.3.0",
@@ -5408,165 +5076,6 @@ def nuget_packages():
             "System.Runtime",
             "System.Text.Encoding",
             "System.Threading.Tasks"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "System.Linq",
-        "name": "System.Linq",
-        "version": "4.3.0",
-        "sha512": "sha512-6sx/4exSb0BfW6DmcfYW0OW+nBgo1UOp4vjGXfQJnWsupKn6LNrk80sXDcNxQvYOJn4TfKOfNQKB7XDS3GIEWA==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [
-            "System.Collections",
-            "System.Runtime"
-          ],
-          "netstandard1.1": [
-            "System.Collections",
-            "System.Runtime"
-          ],
-          "netstandard1.2": [
-            "System.Collections",
-            "System.Runtime"
-          ],
-          "netstandard1.3": [
-            "System.Collections",
-            "System.Runtime"
-          ],
-          "netstandard1.4": [
-            "System.Collections",
-            "System.Runtime"
-          ],
-          "netstandard1.5": [
-            "System.Collections",
-            "System.Runtime"
-          ],
-          "netstandard1.6": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "netstandard2.0": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "netstandard2.1": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "netcoreapp1.1": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "netcoreapp2.0": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "netcoreapp2.1": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "netcoreapp2.2": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "netcoreapp3.0": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "netcoreapp3.1": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "net5.0": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "net6.0": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "net7.0": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "net8.0": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
-          ],
-          "net9.0": [
-            "System.Collections",
-            "System.Diagnostics.Debug",
-            "System.Resources.ResourceManager",
-            "System.Runtime",
-            "System.Runtime.Extensions"
           ]
         },
         "targeting_pack_overrides": [],
@@ -5912,6 +5421,258 @@ def nuget_packages():
         "framework_list": []
       },
       {
+        "id": "System.Linq",
+        "name": "System.Linq",
+        "version": "4.3.0",
+        "sha512": "sha512-6sx/4exSb0BfW6DmcfYW0OW+nBgo1UOp4vjGXfQJnWsupKn6LNrk80sXDcNxQvYOJn4TfKOfNQKB7XDS3GIEWA==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [
+            "System.Collections",
+            "System.Runtime"
+          ],
+          "netstandard1.1": [
+            "System.Collections",
+            "System.Runtime"
+          ],
+          "netstandard1.2": [
+            "System.Collections",
+            "System.Runtime"
+          ],
+          "netstandard1.3": [
+            "System.Collections",
+            "System.Runtime"
+          ],
+          "netstandard1.4": [
+            "System.Collections",
+            "System.Runtime"
+          ],
+          "netstandard1.5": [
+            "System.Collections",
+            "System.Runtime"
+          ],
+          "netstandard1.6": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "netstandard2.0": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "netstandard2.1": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "netcoreapp1.1": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "netcoreapp2.0": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "netcoreapp2.1": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "netcoreapp2.2": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "netcoreapp3.0": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "netcoreapp3.1": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "net5.0": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "net6.0": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "net7.0": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "net8.0": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ],
+          "net9.0": [
+            "System.Collections",
+            "System.Diagnostics.Debug",
+            "System.Resources.ResourceManager",
+            "System.Runtime",
+            "System.Runtime.Extensions"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "System.Memory",
+        "name": "System.Memory",
+        "version": "4.5.5",
+        "sha512": "sha512-6MjlNsl7lKw0Q8lAsw2tQ89ul9x6jD2Yk3EEj+dOFoYGOE9eAUO9wNhvd4O/n97oQXlkyzqKXXUnE+kLElFy3A==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard1.2": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard1.3": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard1.4": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard1.5": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard1.6": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard2.0": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard2.1": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net451": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net452": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net46": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net461": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net462": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net47": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net471": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net472": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net48": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp1.0": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp1.1": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp2.0": [
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
         "id": "System.ObjectModel",
         "name": "System.ObjectModel",
         "version": "4.3.0",
@@ -6071,354 +5832,6 @@ def nuget_packages():
             "System.Resources.ResourceManager",
             "System.Runtime",
             "System.Threading"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "System.Reflection",
-        "name": "System.Reflection",
-        "version": "4.3.0",
-        "sha512": "sha512-IyW2ftYNzgMCgHBk8lQiy+G3+ydbU5tE+6PEqM5JJvIdeFKaXDSzHAPYDREPe6zpr5WJ1Fcma+rAFCIAV6+DMw==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.2": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.3": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.4": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.5": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.6": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard2.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard2.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp1.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp2.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp2.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp2.2": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp3.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp3.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net5.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net6.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net7.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net8.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net9.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets",
-            "System.IO",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ]
-        },
-        "targeting_pack_overrides": [],
-        "framework_list": []
-      },
-      {
-        "id": "System.Reflection.Emit",
-        "name": "System.Reflection.Emit",
-        "version": "4.3.0",
-        "sha512": "sha512-vkUFFGejarllQQ8RKkdfuBUQpVlTR9HMDEawKOBDajOSGN08Bz8EjC0zi2fcE7RXQikLbEb1WYJQP3So8mmIGA==",
-        "sources": [
-          "https://api.nuget.org/v3/index.json"
-        ],
-        "dependencies": {
-          "netstandard": [],
-          "netstandard1.0": [],
-          "netstandard1.1": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.2": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.3": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.4": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.5": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard1.6": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard2.0": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netstandard2.1": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net11": [],
-          "net20": [],
-          "net30": [],
-          "net35": [],
-          "net40": [],
-          "net403": [],
-          "net45": [],
-          "net451": [],
-          "net452": [],
-          "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp1.1": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp2.0": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp2.1": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp2.2": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp3.0": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "netcoreapp3.1": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net5.0": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net6.0": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net7.0": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net8.0": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
-          ],
-          "net9.0": [
-            "System.IO",
-            "System.Reflection",
-            "System.Reflection.Emit.ILGeneration",
-            "System.Reflection.Primitives",
-            "System.Runtime"
           ]
         },
         "targeting_pack_overrides": [],
@@ -6716,6 +6129,177 @@ def nuget_packages():
         "framework_list": []
       },
       {
+        "id": "System.Reflection.Emit",
+        "name": "System.Reflection.Emit",
+        "version": "4.3.0",
+        "sha512": "sha512-vkUFFGejarllQQ8RKkdfuBUQpVlTR9HMDEawKOBDajOSGN08Bz8EjC0zi2fcE7RXQikLbEb1WYJQP3So8mmIGA==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.2": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.3": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.4": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.5": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.6": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard2.0": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard2.1": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp1.1": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp2.0": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp2.1": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp2.2": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp3.0": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp3.1": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net5.0": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net6.0": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net7.0": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net8.0": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net9.0": [
+            "System.IO",
+            "System.Reflection",
+            "System.Reflection.Emit.ILGeneration",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
         "id": "System.Reflection.Extensions",
         "name": "System.Reflection.Extensions",
         "version": "4.3.0",
@@ -6867,6 +6451,73 @@ def nuget_packages():
             "System.Reflection",
             "System.Runtime"
           ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "System.Reflection.Metadata",
+        "name": "System.Reflection.Metadata",
+        "version": "1.6.0",
+        "sha512": "sha512-9SJ2Zu3Gux2ni4qOhqaOm9ZHyqLsahWAwUpKXh/lz9472vDYwj3CEMQFpV+Dzrat0amtqxSdwGWzjP3cmwG6IA==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.2": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.3": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.4": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.5": [
+            "NETStandard.Library"
+          ],
+          "netstandard1.6": [
+            "NETStandard.Library"
+          ],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [
+            "NETStandard.Library"
+          ],
+          "netcoreapp1.1": [
+            "NETStandard.Library"
+          ],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
         },
         "targeting_pack_overrides": [],
         "framework_list": []
@@ -7122,6 +6773,183 @@ def nuget_packages():
         "framework_list": []
       },
       {
+        "id": "System.Reflection",
+        "name": "System.Reflection",
+        "version": "4.3.0",
+        "sha512": "sha512-IyW2ftYNzgMCgHBk8lQiy+G3+ydbU5tE+6PEqM5JJvIdeFKaXDSzHAPYDREPe6zpr5WJ1Fcma+rAFCIAV6+DMw==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.2": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.3": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.4": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.5": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard1.6": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard2.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netstandard2.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp1.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp2.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp2.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp2.2": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp3.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "netcoreapp3.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net5.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net6.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net7.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net8.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ],
+          "net9.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets",
+            "System.IO",
+            "System.Reflection.Primitives",
+            "System.Runtime"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
         "id": "System.Resources.ResourceManager",
         "name": "System.Resources.ResourceManager",
         "version": "4.3.0",
@@ -7299,51 +7127,24 @@ def nuget_packages():
         "framework_list": []
       },
       {
-        "id": "System.Runtime",
-        "name": "System.Runtime",
-        "version": "4.3.0",
-        "sha512": "sha512-kqsiSfCAc8+v3Ez719s21lGthxuNi6lhAGmCGH3jdL9KMK+T8V9zsFrzQ/enDL1ISwTWRlcFh2Nq5yFx6wcU+w==",
+        "id": "System.Runtime.CompilerServices.Unsafe",
+        "name": "System.Runtime.CompilerServices.Unsafe",
+        "version": "6.0.0",
+        "sha512": "sha512-1AVzAb5OxJNvJLnOADtexNmWgattm2XVOT3TjQTN7Dd4SqoSwai1CsN2fth42uQldJSQdz/sAec0+TzxBFgisw==",
         "sources": [
           "https://api.nuget.org/v3/index.json"
         ],
         "dependencies": {
           "netstandard": [],
-          "netstandard1.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netstandard1.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netstandard1.2": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netstandard1.3": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netstandard1.4": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netstandard1.5": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netstandard1.6": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netstandard2.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netstandard2.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [],
+          "netstandard2.1": [],
           "net11": [],
           "net20": [],
           "net30": [],
@@ -7360,54 +7161,18 @@ def nuget_packages():
           "net471": [],
           "net472": [],
           "net48": [],
-          "netcoreapp1.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netcoreapp1.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netcoreapp2.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netcoreapp2.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netcoreapp2.2": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netcoreapp3.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "netcoreapp3.1": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "net5.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "net6.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "net7.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "net8.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ],
-          "net9.0": [
-            "Microsoft.NETCore.Platforms",
-            "Microsoft.NETCore.Targets"
-          ]
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [],
+          "netcoreapp2.1": [],
+          "netcoreapp2.2": [],
+          "netcoreapp3.0": [],
+          "netcoreapp3.1": [],
+          "net5.0": [],
+          "net6.0": [],
+          "net7.0": [],
+          "net8.0": [],
+          "net9.0": []
         },
         "targeting_pack_overrides": [],
         "framework_list": []
@@ -7864,6 +7629,120 @@ def nuget_packages():
             "System.Reflection.Primitives",
             "System.Runtime",
             "System.Runtime.Handles"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "System.Runtime",
+        "name": "System.Runtime",
+        "version": "4.3.0",
+        "sha512": "sha512-kqsiSfCAc8+v3Ez719s21lGthxuNi6lhAGmCGH3jdL9KMK+T8V9zsFrzQ/enDL1ISwTWRlcFh2Nq5yFx6wcU+w==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netstandard1.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netstandard1.2": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netstandard1.3": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netstandard1.4": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netstandard1.5": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netstandard1.6": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netstandard2.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netstandard2.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netcoreapp1.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netcoreapp2.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netcoreapp2.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netcoreapp2.2": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netcoreapp3.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "netcoreapp3.1": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "net5.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "net6.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "net7.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "net8.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
+          ],
+          "net9.0": [
+            "Microsoft.NETCore.Platforms",
+            "Microsoft.NETCore.Targets"
           ]
         },
         "targeting_pack_overrides": [],
@@ -8466,50 +8345,29 @@ def nuget_packages():
         "framework_list": []
       },
       {
-        "id": "System.Threading",
-        "name": "System.Threading",
-        "version": "4.3.0",
-        "sha512": "sha512-l6J1G9zmn6r5xU+DSp/Vxgx6eG+qUvQgdpgo28m1gEwfNyG6HqlF6h2ESDXZCYEPnngsmkTQ+q7MyyMMTNlaiA==",
+        "id": "System.Text.Encodings.Web",
+        "name": "System.Text.Encodings.Web",
+        "version": "9.0.3",
+        "sha512": "sha512-R/3v9Dp7qg3/AnEfShT6/gusGkps/8bE5ZSnWHEpB5Ix2h3ryyBJdSTFtqEqKDJHyu3F3oxDYEz6SaaqppgBVw==",
         "sources": [
           "https://api.nuget.org/v3/index.json"
         ],
         "dependencies": {
           "netstandard": [],
-          "netstandard1.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
-          ],
-          "netstandard1.1": [
-            "System.Runtime",
-            "System.Threading.Tasks"
-          ],
-          "netstandard1.2": [
-            "System.Runtime",
-            "System.Threading.Tasks"
-          ],
-          "netstandard1.3": [
-            "System.Runtime",
-            "System.Threading.Tasks"
-          ],
-          "netstandard1.4": [
-            "System.Runtime",
-            "System.Threading.Tasks"
-          ],
-          "netstandard1.5": [
-            "System.Runtime",
-            "System.Threading.Tasks"
-          ],
-          "netstandard1.6": [
-            "System.Runtime",
-            "System.Threading.Tasks"
-          ],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
           "netstandard2.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "netstandard2.1": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "net11": [],
           "net20": [],
@@ -8521,60 +8379,200 @@ def nuget_packages():
           "net451": [],
           "net452": [],
           "net46": [],
-          "net461": [],
-          "net462": [],
-          "net47": [],
-          "net471": [],
-          "net472": [],
-          "net48": [],
-          "netcoreapp1.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+          "net461": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
-          "netcoreapp1.1": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+          "net462": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
+          "net47": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net471": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net472": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net48": [
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
           "netcoreapp2.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "netcoreapp2.1": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "netcoreapp2.2": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "netcoreapp3.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "netcoreapp3.1": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "net5.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "net6.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "net7.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net8.0": [],
+          "net9.0": []
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "System.Text.Json",
+        "name": "System.Text.Json",
+        "version": "9.0.3",
+        "sha512": "sha512-qGxfH+oyDbYxUCG19mu28qdKH26E87n/5gh5AuQzqBpp7H5gQ1W12jOMGz2x3l50ILqjVmkvF3a72uzLHqC7tQ==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [],
+          "netstandard1.1": [],
+          "netstandard1.2": [],
+          "netstandard1.3": [],
+          "netstandard1.4": [],
+          "netstandard1.5": [],
+          "netstandard1.6": [],
+          "netstandard2.0": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netstandard2.1": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net462": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net47": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net471": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net472": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net48": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp1.0": [],
+          "netcoreapp1.1": [],
+          "netcoreapp2.0": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp2.1": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp2.2": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp3.0": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "netcoreapp3.1": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net5.0": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net6.0": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
+          ],
+          "net7.0": [
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web",
+            "System.Memory",
+            "System.Runtime.CompilerServices.Unsafe"
           ],
           "net8.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
+            "System.IO.Pipelines",
+            "System.Text.Encodings.Web"
           ],
-          "net9.0": [
-            "System.Runtime",
-            "System.Threading.Tasks"
-          ]
+          "net9.0": []
         },
         "targeting_pack_overrides": [],
         "framework_list": []
@@ -8709,6 +8707,120 @@ def nuget_packages():
             "Microsoft.NETCore.Platforms",
             "Microsoft.NETCore.Targets",
             "System.Runtime"
+          ]
+        },
+        "targeting_pack_overrides": [],
+        "framework_list": []
+      },
+      {
+        "id": "System.Threading",
+        "name": "System.Threading",
+        "version": "4.3.0",
+        "sha512": "sha512-l6J1G9zmn6r5xU+DSp/Vxgx6eG+qUvQgdpgo28m1gEwfNyG6HqlF6h2ESDXZCYEPnngsmkTQ+q7MyyMMTNlaiA==",
+        "sources": [
+          "https://api.nuget.org/v3/index.json"
+        ],
+        "dependencies": {
+          "netstandard": [],
+          "netstandard1.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netstandard1.1": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netstandard1.2": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netstandard1.3": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netstandard1.4": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netstandard1.5": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netstandard1.6": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netstandard2.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netstandard2.1": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "net11": [],
+          "net20": [],
+          "net30": [],
+          "net35": [],
+          "net40": [],
+          "net403": [],
+          "net45": [],
+          "net451": [],
+          "net452": [],
+          "net46": [],
+          "net461": [],
+          "net462": [],
+          "net47": [],
+          "net471": [],
+          "net472": [],
+          "net48": [],
+          "netcoreapp1.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netcoreapp1.1": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netcoreapp2.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netcoreapp2.1": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netcoreapp2.2": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netcoreapp3.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "netcoreapp3.1": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "net5.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "net6.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "net7.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "net8.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
+          ],
+          "net9.0": [
+            "System.Runtime",
+            "System.Threading.Tasks"
           ]
         },
         "targeting_pack_overrides": [],
