@@ -4,5 +4,8 @@ csharp_binary(
     name = "Bruh",
     srcs = ["Program.cs"],
     target_frameworks = ["net8.0"],
-    deps = ["@nuget//system.text.json"],
+    deps = [
+        "//apps/Bruh.Lib",
+        "@nuget//system.text.json",
+    ],
 )

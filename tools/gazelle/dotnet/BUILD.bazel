@@ -1,0 +1,27 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "dotnet",
+    srcs = [
+        "generate.go",
+        "kinds.go",
+        "language.go",
+        "resolve.go",
+        "target.go",
+    ],
+    importpath = "github.com/lavatoaster/dbot/tools/gazelle/dotnet",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//tools/gazelle/dotnet/parser",
+        "@com_github_bazelbuild_buildtools//build",
+        "@com_github_bmatcuk_doublestar_v4//:doublestar",
+        "@com_github_emirpasic_gods//sets/treeset",
+        "@com_github_phsym_console_slog//:console-slog",
+        "@gazelle//config",
+        "@gazelle//label",
+        "@gazelle//language",
+        "@gazelle//repo",
+        "@gazelle//resolve",
+        "@gazelle//rule",
+    ],
+)

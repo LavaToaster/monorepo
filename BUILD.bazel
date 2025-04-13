@@ -14,7 +14,7 @@ gazelle_binary(
     name = "root_gazelle",
     languages = DEFAULT_LANGUAGES + [
         # "@external_repository//language/gazelle",  # External languages can be added here.
-        "//tools/gazelle/rules_dotnet",
+        "//tools/gazelle/dotnet",
     ],
     visibility = ["//visibility:public"],
 )
@@ -22,6 +22,10 @@ gazelle_binary(
 gazelle(
     name = "gazelle",
     gazelle = ":root_gazelle",
+)
+
+gazelle(
+    name = "gazelle_go",
 )
 
 alias(

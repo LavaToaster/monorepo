@@ -1,0 +1,14 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_nunit_test")
+
+csharp_nunit_test(
+    name = "Bruh.Test",
+    srcs = ["UnitTest1.cs"],
+    target_frameworks = ["net8.0"],
+    deps = [
+        "@nuget//coverlet.collector",
+        "@nuget//microsoft.net.test.sdk",
+        "@nuget//nunit",
+        "@nuget//nunit.analyzers",
+        "@nuget//nunit3testadapter",
+    ],
+)
