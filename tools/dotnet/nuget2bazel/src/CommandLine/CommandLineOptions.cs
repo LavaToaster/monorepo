@@ -25,7 +25,7 @@ public static class CommandLineOptions
     /// </summary>
     public static Option<FileInfo?> OutputFileOption { get; } = new(
         name: "--output-file",
-        description: "Path to output file (defaults to nuget_deps.bzl in workspace root if not specified)"
+        description: "Path to output file (defaults to nuget.deps.json in workspace root if not specified)"
     )
     {
         IsRequired = false

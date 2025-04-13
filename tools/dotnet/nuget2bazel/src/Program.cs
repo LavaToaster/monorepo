@@ -20,9 +20,9 @@ rootCommand.SetHandler(async (workspaceRoot, outputFile, packageSource) =>
             // If workspace root is not provided, try to get it from environment
             var workspaceDir = workspaceRoot ?? CommandLineOptions.GetWorkspaceDirectoryFromEnv();
 
-            // If output file is not provided, default to nuget_deps.bzl in workspace root
+            // If output file is not provided, default to nuget.deps.json in workspace root
             var outputFilePath = outputFile ??
-                                 new FileInfo(Path.Combine(workspaceDir.FullName, "nuget_deps.bzl"));
+                                 new FileInfo(Path.Combine(workspaceDir.FullName, "nuget.deps.json"));
 
             // Use default package source if not specified
             var nugetSource = packageSource ?? "https://api.nuget.org/v3/index.json";

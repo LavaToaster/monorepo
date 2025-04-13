@@ -71,9 +71,8 @@ public class CommandHandler
         
         allBazelPackages = allBazelPackages.OrderBy(package => package.GetUniqueKey()).ToList();
         
-        // Generate the Bazel file content
-        var generator = new BazelFileGenerator();
-        string content = generator.Generate(allBazelPackages);
+        // Generate the json
+        string content = BazelFileGenerator.Generate(allBazelPackages);
         
         // Write to file
         var outputDirectory = Path.GetDirectoryName(_outputFile.FullName)!;

@@ -30,7 +30,11 @@ use_repo(dotnet, "dotnet_toolchains")
 
 register_toolchains("@dotnet_toolchains//:all")
 
-nuget_packages_extension = use_extension("//:nuget_deps.extension.bzl", "nuget_packages_extension")
+nuget_packages_extension = use_extension("//prelude/dotnet:repo.bzl", "nuget_packages_extension")
+nuget_packages_extension.from_file(
+    nuget_deps = "//:nuget.deps.json",
+    name = "nuget",
+)
 use_repo(nuget_packages_extension, "nuget")
 
 #########################
