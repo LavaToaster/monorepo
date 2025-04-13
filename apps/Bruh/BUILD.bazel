@@ -6,6 +6,6 @@ csharp_binary(
     target_frameworks = ["net8.0"],
     deps = [
         "//apps/Bruh.Lib",
-        "@nuget//system.text.json",
+        "@nuget//system.text.json/9.0.3",
     ],
 )

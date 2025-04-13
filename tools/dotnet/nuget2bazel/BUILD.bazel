@@ -18,11 +18,11 @@ csharp_binary(
     target_frameworks = ["net8.0"],
     visibility = ["//visibility:public"],
     deps = [
-        "@nuget//nuget.frameworks",
-        "@nuget//nuget.packagemanagement",
-        "@nuget//nuget.packaging",
-        "@nuget//nuget.projectmodel",
-        "@nuget//nuget.versioning",
-        "@nuget//system.commandline",
+        "@nuget//nuget.frameworks/6.13.2",
+        "@nuget//nuget.packagemanagement/6.13.2",
+        "@nuget//nuget.packaging/6.13.2",
+        "@nuget//nuget.projectmodel/6.13.2",
+        "@nuget//nuget.versioning/6.13.2",
+        "@nuget//system.commandline/2.0.0-beta4.22272.1",
     ],
 )
