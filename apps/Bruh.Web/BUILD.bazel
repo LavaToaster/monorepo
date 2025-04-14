@@ -11,7 +11,7 @@ csharp_binary(
     target_frameworks = ["net8.0"],
     deps = [
         "//apps/Bruh.Lib",
-        "@nuget//microsoft.aspnetcore.openapi/8.0.8",
-        "@nuget//swashbuckle.aspnetcore/6.4.0",
+        "@nuget_apps_bruh.web//microsoft.aspnetcore.openapi/8.0.8",
+        "@nuget_apps_bruh.web//swashbuckle.aspnetcore/6.4.0",
     ],
 )

@@ -34,7 +34,10 @@ func (l *dotnetLang) Resolve(
 			for _, packageReference := range itemGroup.PackageReferences {
 				// Do we need to look up the version?
 				version := packageInfo.lock.Dependencies[projectTargetFramework][strings.ToLower(packageReference.Include)].Resolved
-				target := "@nuget//" + strings.ToLower(packageReference.Include) + "/" + version
+				packageId := strings.ToLower(strings.ReplaceAll(from.Pkg, "/", "_"))
+				repoKey := "@nuget_" + packageId
+
+				target := repoKey + "//" + strings.ToLower(packageReference.Include) + "/" + version
 
 				deps.Add(target)
 

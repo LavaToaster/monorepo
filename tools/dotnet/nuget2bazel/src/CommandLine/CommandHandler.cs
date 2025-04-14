@@ -25,8 +25,8 @@ public class CommandHandler
     /// <param name="outputFile">The output file.</param>
     /// <param name="packageSource">The NuGet package source URL.</param>
     public CommandHandler(
-        DirectoryInfo workspaceDirectory, 
-        FileInfo outputFile, 
+        DirectoryInfo workspaceDirectory,
+        FileInfo outputFile,
         string packageSource = "https://api.nuget.org/v3/index.json")
     {
         _workspaceDirectory = workspaceDirectory ?? throw new ArgumentNullException(nameof(workspaceDirectory));
@@ -41,45 +41,53 @@ public class CommandHandler
     public async Task ExecuteAsync(CancellationToken cancellationToken = default)
     {
         Console.WriteLine($"Searching for packages.lock.json files in {_workspaceDirectory.FullName}");
-        
-        var lockFiles = Directory.GetFiles(_workspaceDirectory.FullName, "packages.lock.json", SearchOption.AllDirectories);
-        
+
+        var lockFiles = Directory
+            .GetFiles(_workspaceDirectory.FullName, "packages.lock.json", SearchOption.AllDirectories)
+            .Where(path => !path.Contains("bazel-") && !path.Contains("bin") && !path.Contains("obj"))
+            .ToArray();
+
         if (lockFiles.Length == 0)
         {
             Console.WriteLine("No packages.lock.json files found!");
             return;
         }
-        
+
         Console.WriteLine($"Found {lockFiles.Length} packages.lock.json files");
-        
-        var allBazelPackages = new List<RulesDotnetNugetPackage>();
-        var processedPackageIds = new HashSet<string>();
-        
+
+        var bazelPackages = new Dictionary<string, List<RulesDotnetNugetPackage>>();
+
         foreach (var lockFile in lockFiles)
         {
             Console.WriteLine($"Processing {lockFile}");
             var packageAnalyzer = new NugetPackageAnalyzer(lockFile, _packageSource);
             var bazelNugetPackages = await packageAnalyzer.AnalyzePackagesAsync(cancellationToken);
-            
-            // Add unique packages
-            foreach (var package in bazelNugetPackages.Where(package => !processedPackageIds.Contains(package.GetUniqueKey())))
-            {
-                allBazelPackages.Add(package);
-                processedPackageIds.Add(package.GetUniqueKey());
-            }
+
+            var lockFileDirectory = Path.GetDirectoryName(lockFile)!;
+            var relativePath = lockFileDirectory.Replace(_workspaceDirectory.FullName, string.Empty).TrimStart(Path.DirectorySeparatorChar);
+            var repoKey = "nuget_" + relativePath.Replace(Path.DirectorySeparatorChar, '_').ToLower();
+            Console.WriteLine($"Adding packages to {repoKey}");
+
+            bazelPackages.Add(repoKey, bazelNugetPackages);
         }
-        
-        allBazelPackages = allBazelPackages.OrderBy(package => package.GetUniqueKey()).ToList();
-        
+
+        var sortedBazelPackages = new SortedDictionary<string, List<RulesDotnetNugetPackage>>(bazelPackages);
+
+        foreach (var repoKey in sortedBazelPackages.Keys.ToList())
+        {
+            sortedBazelPackages[repoKey] = sortedBazelPackages[repoKey]
+                .OrderBy(p => p.GetUniqueKey())
+                .ToList();
+        }
+
         // Generate the json
-        string content = BazelFileGenerator.Generate(allBazelPackages);
-        
+        string content = BazelFileGenerator.Generate(sortedBazelPackages);
+
         // Write to file
         var outputDirectory = Path.GetDirectoryName(_outputFile.FullName)!;
         Directory.CreateDirectory(outputDirectory);
         await File.WriteAllTextAsync(_outputFile.FullName, content, cancellationToken);
-        
+
         Console.WriteLine($"Successfully wrote Bazel NuGet dependencies to {_outputFile.FullName}");
-        Console.WriteLine($"Processed {allBazelPackages.Count} unique packages");
     }
 }

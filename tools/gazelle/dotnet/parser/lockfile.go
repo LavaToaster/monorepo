@@ -13,6 +13,7 @@ type PackagesLock struct {
 }
 
 type Dependency struct {
+	Name     string
 	Type     string `json:"type"`
 	Resolved string `json:"resolved"`
 	// contentHash is unfortunately unusable since it does not represent the
@@ -37,6 +38,7 @@ func ParsePackagesLockFile(filePath string) (PackagesLock, error) {
 	for framework, deps := range packagesLock.Dependencies {
 		lowercaseFrameworkDeps := make(map[string]Dependency)
 		for pkg, dep := range deps {
+			dep.Name = pkg
 			lowercaseFrameworkDeps[strings.ToLower(pkg)] = dep
 		}
 		packagesLock.Dependencies[framework] = lowercaseFrameworkDeps

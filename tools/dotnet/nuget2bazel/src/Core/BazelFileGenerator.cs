@@ -16,7 +16,7 @@ public static class BazelFileGenerator
     /// </summary>
     /// <param name="packages">The list of NuGet packages.</param>
     /// <returns>the JSON string representing the NuGet packages.</returns>
-    public static string Generate(IReadOnlyList<RulesDotnetNugetPackage> packages)
+    public static string Generate(SortedDictionary<string, List<RulesDotnetNugetPackage>> packages)
     {
         ArgumentNullException.ThrowIfNull(packages);
 
