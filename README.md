@@ -35,18 +35,16 @@ bazel run //tools/dotnet/nuget2bazel -- --output-file=/path/to/output.json --pac
 ```
 4. Run `bazel mod tidy` to ensure that any new repos are added to your MODULE.bazel file
 
-
 The tool will:
 - Search for all packages.lock.json files in your workspace
 - Download package metadata from NuGet
 - Generate a nuget.deps.json file with all dependencies organized by project
 - This file is referenced by the Bazel build system to resolve NuGet package dependencies
 
-## Typical Workflow
+### Not Implemented:
 
-1. Add or update NuGet packages in your .csproj files
-2. Run `dotnet restore` to update packages.lock.json files (if needed,  your ide should do this automatically)
-3. Run `bazel run //tools/dotnet/nuget2bazel` to update Bazel NuGet dependencies
-4. Run `bazel mod tidy` to ensure that any new repos are added
-5. Run `bazel run //:gazelle` to update BUILD files
-6. Build your project with `bazel build //...`
+- [ ] Proper support for private NuGet feeds
+- [ ] F# support
+- [ ] Gazelle generating dep paket imports
+- [ ] Inclusion of resource files
+- [ ] Anything more advanced than what this repository currently does
