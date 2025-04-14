@@ -33,6 +33,8 @@ bazel run //tools/dotnet/nuget2bazel
 # Specify custom options if needed
 bazel run //tools/dotnet/nuget2bazel -- --output-file=/path/to/output.json --package-source=https://your-nuget-source
 ```
+4. Run `bazel mod tidy` to ensure that any new repos are added to your MODULE.bazel file
+
 
 The tool will:
 - Search for all packages.lock.json files in your workspace
@@ -45,5 +47,6 @@ The tool will:
 1. Add or update NuGet packages in your .csproj files
 2. Run `dotnet restore` to update packages.lock.json files (if needed,  your ide should do this automatically)
 3. Run `bazel run //tools/dotnet/nuget2bazel` to update Bazel NuGet dependencies
-4. Run `bazel run //:gazelle` to update BUILD files
-5. Build your project with `bazel build //...`
+4. Run `bazel mod tidy` to ensure that any new repos are added
+5. Run `bazel run //:gazelle` to update BUILD files
+6. Build your project with `bazel build //...`
