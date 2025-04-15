@@ -1,4 +1,5 @@
 load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary")
+load("//prelude/dotnet:defs.bzl", "dotnet_oci_image")
 
 csharp_binary(
     name = "Bruh.Web",
@@ -14,4 +15,12 @@ csharp_binary(
         "@nuget_apps_bruh.web//microsoft.aspnetcore.openapi/8.0.8",
         "@nuget_apps_bruh.web//swashbuckle.aspnetcore/6.4.0",
     ],
+)
+
+# Using the updated dotnet_oci_image macro
+dotnet_oci_image(
+    name = "image",
+    binary = ":Bruh.Web",
+    app_name = "Bruh.Web",
+    image_repo_name = "bruh.web",
 )

@@ -4,6 +4,7 @@ load(
     "@rules_dotnet//dotnet:defs.bzl",
     rules_csharp_binary = "csharp_binary",
 )
+load("oci.bzl", _dotnet_oci_image = "dotnet_oci_image")
 
 DEFAULT_RID = "any"
 
@@ -144,3 +145,5 @@ def csharp_binary(
         treat_warnings_as_errors = treat_warnings_as_errors,
         **kwargs
     )
+
+dotnet_oci_image = _dotnet_oci_image
