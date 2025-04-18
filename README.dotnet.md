@@ -43,8 +43,8 @@ The tool will:
 
 ### Not Implemented:
 
-- [ ] Proper support for private NuGet feeds
-- [ ] F# support
-- [ ] Gazelle generating dep paket imports
-- [ ] Inclusion of resource files
-- [ ] Anything more advanced than what this repository currently does
+- [ ] F#
+- [ ] Private NuGet feeds
+- [ ] Paket
+- [ ] Resource Files Discovery
+- [ ] All other attributes rules_dotnet supports on its rules
