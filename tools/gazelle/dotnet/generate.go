@@ -310,12 +310,12 @@ func addGlobalUsings(args language.GenerateArgs, rules *[]rule.Rule, imports *[]
 	*imports = append(*imports, make(map[string]interface{})) // nothing to import?
 }
 
-func getOrCreateRule(args language.GenerateArgs, ruleName string, projectType string) *rule.Rule {
-	ruleKind := projectType
-
-	for _, r := range args.File.Rules {
-		if r.Kind() == ruleKind && r.Name() == ruleName {
-			return r
+func getOrCreateRule(args language.GenerateArgs, ruleName string, ruleKind string) *rule.Rule {
+	if args.File != nil {
+		for _, r := range args.File.Rules {
+			if r.Kind() == ruleKind && r.Name() == ruleName {
+				return r
+			}
 		}
 	}
 
