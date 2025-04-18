@@ -1,5 +1,3 @@
-using NUnit.Framework;
-
 namespace Bruh.Test;
 
 public class Tests

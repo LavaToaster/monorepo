@@ -1,13 +1,15 @@
 load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary")
-load("//prelude/dotnet:defs.bzl", "dotnet_oci_image")
+load("//prelude/dotnet:defs.bzl", "csharp_globalusings", "dotnet_oci_image")
 
 csharp_binary(
     name = "Bruh.Web",
     srcs = [
         "Program.cs",
         "WeatherController.cs",
+        ":Bruh.Web.GlobalUsings",
     ],
     appsetting_files = ["appsettings.json"] + glob(["appsettings.*.json"]),
+    nullable = "enable",
     project_sdk = "web",
     target_frameworks = ["net8.0"],
     deps = [
@@ -20,7 +22,12 @@ csharp_binary(
 # Using the updated dotnet_oci_image macro
 dotnet_oci_image(
     name = "image",
-    binary = ":Bruh.Web",
     app_name = "Bruh.Web",
+    binary = ":Bruh.Web",
     image_repo_name = "bruh.web",
+)
+
+csharp_globalusings(
+    name = "Bruh.Web.GlobalUsings",
+    sdk = "Microsoft.NET.Sdk.Web",
 )

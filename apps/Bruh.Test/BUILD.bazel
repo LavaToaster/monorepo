@@ -1,8 +1,13 @@
 load("@rules_dotnet//dotnet:defs.bzl", "csharp_nunit_test")
+load("//prelude/dotnet:defs.bzl", "csharp_globalusings")
 
 csharp_nunit_test(
     name = "Bruh.Test",
-    srcs = ["UnitTest1.cs"],
+    srcs = [
+        "UnitTest1.cs",
+        ":Bruh.Test.GlobalUsings",
+    ],
+    nullable = "enable",
     target_frameworks = ["net8.0"],
     deps = [
         "@nuget_apps_bruh.test//coverlet.collector/6.0.0",
@@ -11,4 +16,12 @@ csharp_nunit_test(
         "@nuget_apps_bruh.test//nunit/3.14.0",
         "@nuget_apps_bruh.test//nunit3testadapter/4.5.0",
     ],
+)
+
+csharp_globalusings(
+    name = "Bruh.Test.GlobalUsings",
+    sdk = "Microsoft.NET.Sdk",
+    usings = [{
+        "include": "NUnit.Framework",
+    }],
 )

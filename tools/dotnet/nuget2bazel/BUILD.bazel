@@ -15,6 +15,7 @@ csharp_binary(
         "src/Utilities/FrameworkUtilities.cs",
         "src/Utilities/HashUtilities.cs",
     ],
+    nullable = "enable",
     target_frameworks = ["net8.0"],
     visibility = ["//visibility:public"],
     deps = [

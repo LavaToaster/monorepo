@@ -1,11 +1,21 @@
 load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary")
+load("//prelude/dotnet:defs.bzl", "csharp_globalusings")
 
 csharp_binary(
     name = "Bruh",
-    srcs = ["Program.cs"],
+    srcs = [
+        "Program.cs",
+        ":Bruh.GlobalUsings",
+    ],
+    nullable = "enable",
     target_frameworks = ["net8.0"],
     deps = [
         "//apps/Bruh.Lib",
         "@nuget_apps_bruh//system.text.json/9.0.3",
     ],
+)
+
+csharp_globalusings(
+    name = "Bruh.GlobalUsings",
+    sdk = "Microsoft.NET.Sdk",
 )
