@@ -93,11 +93,14 @@ func (l *dotnetLang) addProjectRules(args language.GenerateArgs, result *languag
 		dotnetRule.SetAttr("target_frameworks", []string{projectFile.ResolvedProps.TargetFramework})
 	}
 
-	if projectType == CSharpBinaryKind && projectFile.Sdk == "Microsoft.NET.Sdk.Web" {
-		dotnetRule.SetAttr("project_sdk", "web")
+	if projectType == CSharpBinaryKind {
+		if projectFile.Sdk == "Microsoft.NET.Sdk.Web" {
+			dotnetRule.SetAttr("project_sdk", "web")
+		}
+
 		addAppsettingsFiles(dotnetRule)
 
-		// TODO: Add publish rule
+		// TODO: Add publish rule?
 	}
 
 	if projectType == CSharpLibraryKind {
@@ -152,19 +155,12 @@ func findProjectFiles(args language.GenerateArgs) (csProjPath string, packagesLo
 
 func identifyProjectType(project parser.Project) (string, error) {
 	// Check if the project is a test project
-	isTestProject := false
+	isTestProject := project.ResolvedProps.IsTestProject
 	// Output type defaults to Library
 	outputType := "Library"
 
-	for _, propGroup := range project.PropertyGroups {
-		if propGroup.IsTestProject() {
-			isTestProject = true
-			break
-		}
-
-		if propGroup.OutputType != "" {
-			outputType = propGroup.OutputType
-		}
+	if project.ResolvedProps.OutputType != "" {
+		outputType = project.ResolvedProps.OutputType
 	}
 
 	if isTestProject {
@@ -180,7 +176,7 @@ func identifyProjectType(project parser.Project) (string, error) {
 		return CSharpTestKind, nil
 	}
 
-	if outputType == "Exe" || project.Sdk == "Microsoft.NET.Sdk.Web" {
+	if outputType == "Exe" || project.Sdk == "Microsoft.NET.Sdk.Web" || project.Sdk == "Microsoft.NET.Sdk.Worker" {
 		return CSharpBinaryKind, nil
 	}
 
