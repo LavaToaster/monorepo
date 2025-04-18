@@ -36,10 +36,10 @@ nuget_packages_extension.from_file(
 )
 use_repo(
     nuget_packages_extension,
-    "nuget_apps_bruh",
-    "nuget_apps_bruh.lib",
-    "nuget_apps_bruh.test",
-    "nuget_apps_bruh.web",
+    "nuget_apps_simple_dotnet_example.console",
+    "nuget_apps_simple_dotnet_example.lib",
+    "nuget_apps_simple_dotnet_example.test",
+    "nuget_apps_simple_dotnet_example.web",
     "nuget_tools_dotnet_nuget2bazel",
 )
 

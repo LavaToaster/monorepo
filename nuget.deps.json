@@ -1,5 +1,5 @@
 {
-  "nuget_apps_simple_dotnet_bruh": [
+  "nuget_apps_simple_dotnet_example.console": [
     {
       "id": "Faker.Net",
       "name": "Faker.Net",
@@ -802,7 +802,7 @@
       "framework_list": []
     }
   ],
-  "nuget_apps_simple_dotnet_bruh.lib": [
+  "nuget_apps_simple_dotnet_example.lib": [
     {
       "id": "Faker.Net",
       "name": "Faker.Net",
@@ -1289,7 +1289,7 @@
       "framework_list": []
     }
   ],
-  "nuget_apps_simple_dotnet_bruh.test": [
+  "nuget_apps_simple_dotnet_example.test": [
     {
       "id": "coverlet.collector",
       "name": "coverlet.collector",
@@ -2174,7 +2174,7 @@
       "framework_list": []
     }
   ],
-  "nuget_apps_simple_dotnet_bruh.web": [
+  "nuget_apps_simple_dotnet_example.web": [
     {
       "id": "Faker.Net",
       "name": "Faker.Net",

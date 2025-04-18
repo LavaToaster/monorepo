@@ -62,7 +62,7 @@
         "resolved": "9.0.3",
         "contentHash": "5L+iI4fBMtGwt4FHLQh40/rgdbxnw6lHaLkR3gbaHG97TohzUv+z/oP03drsTR1lKCLhOkp40cFnHYOQLtpT5A=="
       },
-      "bruh.lib": {
+      "example.lib": {
         "type": "Project",
         "dependencies": {
           "Faker.Net": "[2.0.163, )",

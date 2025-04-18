@@ -1,4 +1,4 @@
-namespace Bruh.Test;
+namespace Example.Test;
 
 public class Tests
 {

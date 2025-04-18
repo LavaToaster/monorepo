@@ -1,0 +1,27 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_nunit_test")
+load("//prelude/dotnet:defs.bzl", "csharp_globalusings")
+
+csharp_nunit_test(
+    name = "Example.Test",
+    srcs = [
+        "UnitTest1.cs",
+        ":Example.Test.GlobalUsings",
+    ],
+    nullable = "enable",
+    target_frameworks = ["net8.0"],
+    deps = [
+        "@nuget_apps_simple_dotnet_example.test//coverlet.collector/6.0.0",
+        "@nuget_apps_simple_dotnet_example.test//microsoft.net.test.sdk/17.8.0",
+        "@nuget_apps_simple_dotnet_example.test//nunit.analyzers/3.9.0",
+        "@nuget_apps_simple_dotnet_example.test//nunit/3.14.0",
+        "@nuget_apps_simple_dotnet_example.test//nunit3testadapter/4.5.0",
+    ],
+)
+
+csharp_globalusings(
+    name = "Example.Test.GlobalUsings",
+    sdk = "Microsoft.NET.Sdk",
+    usings = [{
+        "include": "NUnit.Framework",
+    }],
+)

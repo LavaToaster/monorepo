@@ -1,4 +1,4 @@
-namespace Bruh.Lib.Extension;
+namespace Example.Lib.Extension;
 
 public static class FancyExtension
 {

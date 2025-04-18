@@ -2,22 +2,22 @@ load("@rules_dotnet//dotnet:defs.bzl", "csharp_library")
 load("//prelude/dotnet:defs.bzl", "csharp_globalusings")
 
 csharp_library(
-    name = "Bruh.Lib",
+    name = "Example.Lib",
     srcs = [
         "Class1.cs",
         "Extension/FancyExtension.cs",
-        ":Bruh.Lib.GlobalUsings",
+        ":Example.Lib.GlobalUsings",
     ],
     nullable = "enable",
     target_frameworks = ["net8.0"],
     visibility = ["//visibility:public"],
     deps = [
-        "@nuget_apps_simple_dotnet_bruh.lib//faker.net/2.0.163",
-        "@nuget_apps_simple_dotnet_bruh.lib//microsoft.net.stringtools/17.13.9",
+        "@nuget_apps_simple_dotnet_example.lib//faker.net/2.0.163",
+        "@nuget_apps_simple_dotnet_example.lib//microsoft.net.stringtools/17.13.9",
     ],
 )
 
 csharp_globalusings(
-    name = "Bruh.Lib.GlobalUsings",
+    name = "Example.Lib.GlobalUsings",
     sdk = "Microsoft.NET.Sdk",
 )

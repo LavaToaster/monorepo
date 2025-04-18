@@ -1,7 +1,7 @@
-using Bruh.Lib;
+using Example.Lib;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bruh.Web;
+namespace Example.Web;
 
 [ApiController]
 public class WeatherController
