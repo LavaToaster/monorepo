@@ -27,7 +27,7 @@ func (l *dotnetLang) Resolve(
 
 	if packageInfo, isPackageInfo := importData.(*DotnetPackageInfo); isPackageInfo {
 		deps := treeset.NewWithStringComparator()
-		projectTargetFramework := packageInfo.project.TargetFramework()
+		projectTargetFramework := packageInfo.project.ResolvedProps.TargetFramework
 		itemGroups := packageInfo.project.ItemGroups
 
 		for _, itemGroup := range itemGroups {

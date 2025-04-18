@@ -21,6 +21,10 @@ type dotnetLang struct {
 	language.BaseLang
 }
 
+func (l *dotnetLang) Name() string {
+	return LanguageName
+}
+
 func NewLanguage() language.Language {
 	lvl.Set(slog.LevelInfo)
 

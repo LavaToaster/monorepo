@@ -15,6 +15,7 @@ const (
 	CSharpBinaryKind          = "csharp_binary"
 	CSharpTestKind            = "csharp_test"
 	CSharpNUnitTestKind       = "csharp_nunit_test"
+	CSharpGlobalUsings        = "csharp_globalusings"
 	RulesDotnetModuleName     = "rules_dotnet"
 	RulesDotnetRepositoryName = RulesDotnetModuleName
 )
@@ -80,6 +81,17 @@ var dotnetKinds = map[string]rule.KindInfo{
 			"deps": true,
 		},
 	},
+	CSharpGlobalUsings: {
+		MatchAny: false,
+		NonEmptyAttrs: map[string]bool{
+			"usings": true,
+		},
+		SubstituteAttrs: map[string]bool{},
+		MergeableAttrs: map[string]bool{
+			"usings": true,
+		},
+		ResolveAttrs: map[string]bool{},
+	},
 }
 
 func (*dotnetLang) ApparentLoads(moduleToApparentName func(string) string) []rule.LoadInfo {
@@ -96,6 +108,12 @@ func (*dotnetLang) ApparentLoads(moduleToApparentName func(string) string) []rul
 				CSharpLibraryKind,
 				CSharpTestKind,
 				CSharpNUnitTestKind,
+			},
+		},
+		{
+			Name: "//prelude/dotnet:defs.bzl",
+			Symbols: []string{
+				CSharpGlobalUsings,
 			},
 		},
 	}

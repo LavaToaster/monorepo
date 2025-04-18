@@ -64,9 +64,15 @@ func (l *dotnetLang) addProjectRules(args language.GenerateArgs, result *languag
 	dotnetPackageInfo.project = &projectFile
 	dotnetPackageInfo.lock = &lockFile
 
-	dotnetRule := rule.NewRule(projectType, ruleName)
+	var rules []rule.Rule
+	var imports []interface{}
+
+	dotnetRule := getOrCreateRule(args, ruleName, projectType)
 	dotnetRule.SetPrivateAttr("projectFile", projectFile)
 	dotnetRule.SetPrivateAttr("lockFile", lockFile)
+
+	rules = append(rules, *dotnetRule)
+	imports = append(imports, dotnetPackageInfo)
 
 	sourceFiles, err := findSourceFiles(args.Dir)
 	if err != nil {
@@ -81,8 +87,10 @@ func (l *dotnetLang) addProjectRules(args language.GenerateArgs, result *languag
 			sourceFilesList = append(sourceFilesList, file.(string))
 		}
 
+		addGlobalUsings(args, &rules, &imports, dotnetRule, &sourceFilesList, projectFile)
+
 		dotnetRule.SetAttr("srcs", sourceFilesList)
-		dotnetRule.SetAttr("target_frameworks", []string{projectFile.TargetFramework()})
+		dotnetRule.SetAttr("target_frameworks", []string{projectFile.ResolvedProps.TargetFramework})
 	}
 
 	if projectType == CSharpBinaryKind && projectFile.Sdk == "Microsoft.NET.Sdk.Web" {
@@ -96,8 +104,21 @@ func (l *dotnetLang) addProjectRules(args language.GenerateArgs, result *languag
 		dotnetRule.SetAttr("visibility", []string{"//visibility:public"})
 	}
 
-	result.Gen = append(result.Gen, dotnetRule)
-	result.Imports = append(result.Imports, dotnetPackageInfo)
+	logger.Info("Resolved props", "props", projectFile.ResolvedProps)
+
+	if projectFile.ResolvedProps.Nullable {
+		dotnetRule.SetAttr("nullable", "enable")
+	} else {
+		dotnetRule.DelAttr("nullable")
+	}
+
+	for _, rule := range rules {
+		result.Gen = append(result.Gen, &rule)
+	}
+
+	for _, imp := range imports {
+		result.Imports = append(result.Imports, imp)
+	}
 }
 
 // findFileWithExtension searches for a file in the regular files list with the given extension
@@ -136,7 +157,7 @@ func identifyProjectType(project parser.Project) (string, error) {
 	outputType := "Library"
 
 	for _, propGroup := range project.PropertyGroups {
-		if propGroup.IsTestProject == "true" {
+		if propGroup.IsTestProject() {
 			isTestProject = true
 			break
 		}
@@ -146,16 +167,16 @@ func identifyProjectType(project parser.Project) (string, error) {
 		}
 	}
 
-	// Check for NUnit dependencies in all ItemGroups
-	for _, itemGroup := range project.ItemGroups {
-		for _, pkgRef := range itemGroup.PackageReferences {
-			if strings.Contains(strings.ToLower(pkgRef.Include), "nunit") {
-				return CSharpNUnitTestKind, nil
+	if isTestProject {
+		// Check for NUnit dependencies in all ItemGroups
+		for _, itemGroup := range project.ItemGroups {
+			for _, pkgRef := range itemGroup.PackageReferences {
+				if strings.Contains(strings.ToLower(pkgRef.Include), "nunit") {
+					return CSharpNUnitTestKind, nil
+				}
 			}
 		}
-	}
 
-	if isTestProject {
 		return CSharpTestKind, nil
 	}
 
@@ -238,4 +259,67 @@ func addAppsettingsFiles(r *rule.Rule) {
 
 	// Set the attribute
 	r.SetAttr("appsetting_files", plusExpr)
+}
+
+func addGlobalUsings(args language.GenerateArgs, rules *[]rule.Rule, imports *[]interface{}, dotnetRule *rule.Rule, sourceFilesList *[]string, projectFile parser.Project) {
+	var allUsings []parser.Usings
+	isImplicitUsings := projectFile.ResolvedProps.ImplicitUsings
+
+	for _, itemGroup := range projectFile.ItemGroups {
+		for _, usings := range itemGroup.Usings {
+			allUsings = append(allUsings, usings)
+		}
+	}
+
+	if len(allUsings) == 0 && !isImplicitUsings {
+		return
+	}
+
+	globalUsingsRule := getOrCreateRule(args, dotnetRule.Name()+".GlobalUsings", CSharpGlobalUsings)
+
+	if len(allUsings) > 0 {
+		usingsList := []interface{}{}
+
+		for _, usings := range allUsings {
+			value := map[string]interface{}{
+				"include": usings.Include,
+			}
+
+			if usings.Alias != "" {
+				value["alias"] = usings.Alias
+			}
+
+			if usings.IsStatic() {
+				value["static"] = true
+			}
+
+			usingsList = append(usingsList, value)
+		}
+
+		globalUsingsRule.SetAttr("usings", usingsList)
+	}
+
+	if isImplicitUsings {
+		globalUsingsRule.SetAttr("sdk", projectFile.Sdk)
+	} else {
+		globalUsingsRule.DelAttr("sdk")
+	}
+
+	*rules = append(*rules, *globalUsingsRule)
+	*sourceFilesList = append(*sourceFilesList, ":"+globalUsingsRule.Name())
+	*imports = append(*imports, make(map[string]interface{})) // nothing to import?
+}
+
+func getOrCreateRule(args language.GenerateArgs, ruleName string, projectType string) *rule.Rule {
+	ruleKind := projectType
+
+	for _, r := range args.File.Rules {
+		if r.Kind() == ruleKind && r.Name() == ruleName {
+			return r
+		}
+	}
+
+	dotnetRule := rule.NewRule(ruleKind, ruleName)
+
+	return dotnetRule
 }
