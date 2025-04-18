@@ -10,8 +10,8 @@ csharp_binary(
     nullable = "enable",
     target_frameworks = ["net8.0"],
     deps = [
-        "//apps/Bruh.Lib",
-        "@nuget_apps_bruh//system.text.json/9.0.3",
+        "//apps/simple_dotnet/Bruh.Lib",
+        "@nuget_apps_simple_dotnet_bruh//system.text.json/9.0.3",
     ],
 )
 

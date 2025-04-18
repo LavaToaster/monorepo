@@ -10,11 +10,11 @@ csharp_nunit_test(
     nullable = "enable",
     target_frameworks = ["net8.0"],
     deps = [
-        "@nuget_apps_bruh.test//coverlet.collector/6.0.0",
-        "@nuget_apps_bruh.test//microsoft.net.test.sdk/17.8.0",
-        "@nuget_apps_bruh.test//nunit.analyzers/3.9.0",
-        "@nuget_apps_bruh.test//nunit/3.14.0",
-        "@nuget_apps_bruh.test//nunit3testadapter/4.5.0",
+        "@nuget_apps_simple_dotnet_bruh.test//coverlet.collector/6.0.0",
+        "@nuget_apps_simple_dotnet_bruh.test//microsoft.net.test.sdk/17.8.0",
+        "@nuget_apps_simple_dotnet_bruh.test//nunit.analyzers/3.9.0",
+        "@nuget_apps_simple_dotnet_bruh.test//nunit/3.14.0",
+        "@nuget_apps_simple_dotnet_bruh.test//nunit3testadapter/4.5.0",
     ],
 )
 
