@@ -13,4 +13,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<AssettoServerEntity> AssettoServers { get; set; }
     public DbSet<AssettoServerMonitorEntity> StatusMessages { get; set; }
     public DbSet<AssettoServerGuildEntity> GuildConfigurations { get; set; }
+    public DbSet<RoleMirrorCandidateEntity> RoleMirrorCandidates { get; set; }
+    
+    public DbSet<RoleMirrorMappingEntity> RoleMirrorMappings { get; set; }
 }

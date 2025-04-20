@@ -49,6 +49,7 @@ builder.Services.AddScoped<IAssettoServerService, AssettoServerService>();
 builder.Services.AddAssettoServerClient();
 builder.Services.AddSingleton<AssettoStatusMessageGenerator>();
 builder.Services.AddSingleton<AssettoServerEmbedFactory>();
+builder.Services.AddSingleton<RoleMirrorService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
                        ?? "Data Source=dbot.db";

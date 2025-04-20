@@ -11,9 +11,9 @@ namespace DBot.Bot.Services;
 ///     Service for managing Assetto Corsa servers
 /// </summary>
 public class AssettoServerService(
+    ILogger<AssettoServerService> logger,
     ApplicationDbContext dbContext,
-    AssettoServerClientFactory clientFactory,
-    ILogger<AssettoServerService> logger)
+    AssettoServerClientFactory clientFactory)
     : IAssettoServerService
 {
     public async Task<AddServerResult> AddOrUpdateServerAsync(ulong guildId, string displayName, string host, int port)

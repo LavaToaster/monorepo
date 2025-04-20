@@ -1,3 +1,4 @@
+using DBot.Bot.Embeds;
 using DBot.Bot.Interfaces;
 using Discord;
 using Discord.Interactions;
@@ -45,12 +46,8 @@ public class AssettoServerCommandModule(
         {
             logger.LogError("Unable to connect to server {Host}:{Port} - {Message}", host, port, exception.Message);
 
-            var errorEmbed = new EmbedBuilder()
-                .WithTitle("❌ Error")
-                .WithDescription(
-                    $"Failed to connect to the server at {host}:{port}. Please verify the server is online and the address is correct.")
-                .WithColor(Color.Red)
-                .Build();
+            var errorEmbed = StatusEmbedGenerator.Error(
+                $"Failed to connect to the server at {host}:{port}. Please verify the server is online and the address is correct.");
 
             await FollowupAsync(embed: errorEmbed, ephemeral: true);
         }
@@ -58,12 +55,9 @@ public class AssettoServerCommandModule(
         {
             logger.LogError(ex, "Failed to add/update server {DisplayName} at {Host}:{Port}", displayName, host, port);
 
-            var errorEmbed = new EmbedBuilder()
-                .WithTitle("❌ Error")
-                .WithDescription(
-                    $"Failed to connect to the server at {host}:{port}. Please verify the server is online and the address is correct.")
-                .WithColor(Color.Red)
-                .Build();
+            var errorEmbed =
+                StatusEmbedGenerator.Error(
+                    $"An error occurred while adding/updating the server: {ex.Message}. Please try again.");
 
             await FollowupAsync(embed: errorEmbed, ephemeral: true);
         }

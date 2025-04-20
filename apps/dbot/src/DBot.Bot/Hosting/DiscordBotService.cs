@@ -1,5 +1,6 @@
 using System.Reflection;
 using DBot.Bot.Configuration;
+using DBot.Bot.Services;
 using Discord;
 using Discord.Interactions;
 using Discord.WebSocket;
@@ -15,7 +16,8 @@ public class DiscordBotService(
     IOptions<DiscordConfiguration> discordOptions,
     DiscordSocketClient client,
     InteractionService interactions,
-    IServiceProvider services
+    IServiceProvider services,
+    RoleMirrorService mirrorService
 )
     : BackgroundService
 {
@@ -29,6 +31,7 @@ public class DiscordBotService(
         // Set up event handlers
         client.Ready += OnClientReady;
         client.InteractionCreated += OnInteractionCreated;
+        client.GuildMemberUpdated += OnGuildMemberUpdated;
 
         logger.LogInformation("Discord configuration loaded: Token={Token}, TestGuilds={TestGuilds}", _discordConfig.Token?.Substring(0,8) + "...", _discordConfig.TestGuilds);
 
@@ -112,6 +115,33 @@ public class DiscordBotService(
                 else
                     await interaction.FollowupAsync("An error occurred while processing the command.", ephemeral: true);
             }
+        }
+    }
+
+    private async Task OnGuildMemberUpdated(Cacheable<SocketGuildUser, ulong> before, SocketGuildUser after)
+    {
+        // Make sure we have the before user cached
+        if (!before.HasValue)
+            return;
+
+        var beforeUser = before.Value;
+        
+        // Check if roles were changed by comparing the role collections
+        if (!beforeUser.Roles.SequenceEqual(after.Roles))
+        {
+            // Determine which roles were added
+            var addedRoles = after.Roles
+                .Where(r => beforeUser.Roles.All(r2 => r2.Id != r.Id))
+                .Select(r => r.Id)
+                .ToArray();
+            
+            // Determine which roles were removed
+            var removedRoles = beforeUser.Roles
+                .Where(r => after.Roles.All(r2 => r2.Id != r.Id))
+                .Select(r => r.Id)
+                .ToArray();
+
+            await mirrorService.UpdateUserRole(after.Guild.Id, after, addedRoles, removedRoles);
         }
     }
 
