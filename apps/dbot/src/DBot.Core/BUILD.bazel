@@ -1,0 +1,31 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_library")
+load("//prelude/dotnet:defs.bzl", "csharp_globalusings")
+
+csharp_library(
+    name = "DBot.Core",
+    srcs = [
+        "Data/Context/ApplicationDbContext.cs",
+        "Data/Entities/AssettoServerEntity.cs",
+        "Data/Entities/AssettoServerGuildEntity.cs",
+        "Data/Entities/AssettoServerMonitorEntity.cs",
+        "Data/Entities/BaseEntity.cs",
+        "Migrations/20250419234329_InitialCreate.Designer.cs",
+        "Migrations/20250419234329_InitialCreate.cs",
+        "Migrations/ApplicationDbContextModelSnapshot.cs",
+        ":DBot.Core.GlobalUsings",
+    ],
+    nullable = "enable",
+    target_frameworks = ["net8.0"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@nuget_apps_dbot_src_dbot.core//microsoft.entityframeworkcore.design/9.0.4",
+        "@nuget_apps_dbot_src_dbot.core//microsoft.entityframeworkcore.sqlite/9.0.4",
+        "@nuget_apps_dbot_src_dbot.core//microsoft.entityframeworkcore/9.0.4",
+        "@nuget_apps_dbot_src_dbot.core//microsoft.extensions.hosting/9.0.4",
+    ],
+)
+
+csharp_globalusings(
+    name = "DBot.Core.GlobalUsings",
+    sdk = "Microsoft.NET.Sdk",
+)

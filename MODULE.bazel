@@ -36,6 +36,9 @@ nuget_packages_extension.from_file(
 )
 use_repo(
     nuget_packages_extension,
+    "nuget_apps_dbot_src_dbot.bot",
+    "nuget_apps_dbot_src_dbot.core",
+    "nuget_apps_dbot_src_dbot.integrations.assetto",
     "nuget_apps_simple_dotnet_example.console",
     "nuget_apps_simple_dotnet_example.lib",
     "nuget_apps_simple_dotnet_example.test",

@@ -18,3 +18,5 @@ bin
 obj
 
 *.user
+
+appsettings.local.json

@@ -1,0 +1,42 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary")
+load("//prelude/dotnet:defs.bzl", "csharp_globalusings")
+
+csharp_binary(
+    name = "DBot.Bot",
+    srcs = [
+        "Configuration/DiscordBotConfiguration.cs",
+        "Embeds/AssettoServerEmbedFactory.cs",
+        "Hosting/AssettoServerMonitorService.cs",
+        "Hosting/DiscordBotService.cs",
+        "InteractionModules/AssettoServerCommandModule.cs",
+        "InteractionModules/AssettoServerInteractionModule.cs",
+        "InteractionModules/MessageCommandModule.cs",
+        "InteractionModules/MessageInteractionsModule.cs",
+        "Interfaces/IAssettoServerService.cs",
+        "Modals/ServerDetailsModal.cs",
+        "Models/Assetto/AddServerResult.cs",
+        "Program.cs",
+        "Services/AssettoServerService.cs",
+        "Services/AssettoStatusMessageGenerator.cs",
+        "Util/Time/ClockFace.cs",
+        "Util/Time/ClockFaceUtil.cs",
+        "Util/Time/DateTimeExtensions.cs",
+        ":DBot.Bot.GlobalUsings",
+    ],
+    appsetting_files = ["appsettings.json"] + glob(["appsettings.*.json"]),
+    nullable = "enable",
+    project_sdk = "web",
+    target_frameworks = ["net8.0"],
+    deps = [
+        "//apps/dbot/src/DBot.Core",
+        "//apps/dbot/src/DBot.Integrations.Assetto",
+        "@nuget_apps_dbot_src_dbot.bot//discord.net/3.17.2",
+        "@nuget_apps_dbot_src_dbot.bot//microsoft.entityframeworkcore.design/9.0.4",
+        "@nuget_apps_dbot_src_dbot.bot//microsoft.extensions.hosting/9.0.4",
+    ],
+)
+
+csharp_globalusings(
+    name = "DBot.Bot.GlobalUsings",
+    sdk = "Microsoft.NET.Sdk.Worker",
+)

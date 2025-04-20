@@ -1,0 +1,30 @@
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_library")
+load("//prelude/dotnet:defs.bzl", "csharp_globalusings")
+
+csharp_library(
+    name = "DBot.Integrations.Assetto",
+    srcs = [
+        "AssettoServerClientFactory.cs",
+        "Extensions/ServiceCollectionExtensions.cs",
+        "IAssettoServerApi.cs",
+        "Models/CMContentConfiguration.cs",
+        "Models/DetailResponse.cs",
+        "Models/EntryListResponse.cs",
+        "Models/InfoResponse.cs",
+        "Util/TimeUtil.cs",
+        ":DBot.Integrations.Assetto.GlobalUsings",
+    ],
+    nullable = "enable",
+    target_frameworks = ["net8.0"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@nuget_apps_dbot_src_dbot.integrations.assetto//microsoft.extensions.dependencyinjection/9.0.4",
+        "@nuget_apps_dbot_src_dbot.integrations.assetto//refit.httpclientfactory/8.0.0",
+        "@nuget_apps_dbot_src_dbot.integrations.assetto//refit/8.0.0",
+    ],
+)
+
+csharp_globalusings(
+    name = "DBot.Integrations.Assetto.GlobalUsings",
+    sdk = "Microsoft.NET.Sdk",
+)
