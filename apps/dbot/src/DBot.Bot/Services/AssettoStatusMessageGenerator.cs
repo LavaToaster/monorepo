@@ -71,6 +71,11 @@ public class AssettoStatusMessageGenerator(
             {
                 msg.Embed = embed;
 
+                if ((message.Flags & MessageFlags.SuppressEmbeds) == MessageFlags.SuppressEmbeds)
+                {
+                    msg.Flags = message.Flags & ~MessageFlags.SuppressEmbeds;
+                }
+                
                 // if (details is not null)
                 // {
                 //     var button = new ComponentBuilder()
