@@ -58,17 +58,18 @@ public class RoleMirrorService(
             .FirstOrDefaultAsync(r => r.GuildId == guildId && r.RoleId == roleId);
     }
 
-    public async Task RegisterRoleMappingAsync(RoleMirrorCandidateEntity source, RoleMirrorCandidateEntity target)
+    public async Task RegisterRoleMappingAsync(RoleMirrorCandidateEntity source, RoleMirrorCandidateEntity target, RoleSync syncMode)
     {
         if (source.Id == target.Id)
         {
             throw new InvalidOperationException("Source and target roles must be different.");
         }
-
+    
         var mapping = new RoleMirrorMappingEntity
         {
             SourceRoleId = source.Id,
-            TargetRoleId = target.Id
+            TargetRoleId = target.Id,
+            SyncMode = syncMode
         };
 
         context.RoleMirrorMappings.Add(mapping);

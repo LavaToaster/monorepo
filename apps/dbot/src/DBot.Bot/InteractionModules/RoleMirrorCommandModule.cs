@@ -2,13 +2,14 @@ using System.ComponentModel;
 using DBot.Bot.Embeds;
 using DBot.Bot.InteractionModules.Autocomplete;
 using DBot.Bot.Services;
+using DBot.Core.Data.Entities;
 using Discord;
 using Discord.Interactions;
 
 namespace DBot.Bot.InteractionModules;
 
 [Group("mirror", "Role commands")]
-public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, RoleMirrorService service)
+public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, RoleMirrorService service, RoleSyncService syncService)
      : InteractionModuleBase<SocketInteractionContext>
 {
     [SlashCommand("register", "Register a role to be mirrored")]
@@ -97,7 +98,11 @@ public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, Ro
         string sourceRoleInput,
         [Description("Target role to mirror to")]
         [Autocomplete(typeof(RoleMirrorTargetRoleAutocompleteHandler))]
-        string targetRoleInput)
+        string targetRoleInput,
+        [Description("Sync mode")]
+        [Choice("Strict - ensures that target roles exactly match source roles, removing any roles not in the mapping", (int)RoleSync.Strict)]
+        [Choice("Preserve - adds mapped roles but doesn't remove other roles from the target", (int)RoleSync.Preserve)]
+        int syncMode)
     {
         await DeferAsync(true);
     
@@ -112,8 +117,10 @@ public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, Ro
                 await FollowupAsync(embed: errorEmbed, ephemeral: true);
                 return;
             }
-            
-            await service.RegisterRoleMappingAsync(sourceRole, targetRole);
+
+            var syncModeRole = (RoleSync)syncMode;
+
+            await service.RegisterRoleMappingAsync(sourceRole, targetRole, syncModeRole);
             
             var sourceGuild = Context.Client.GetGuild(sourceRole.GuildId);
             var sourceRoleName = sourceGuild.GetRole(sourceRole.RoleId).Name;
@@ -123,6 +130,7 @@ public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, Ro
                 .WithTitle("Roles Mapped") 
                 .AddField($"Source Role ({sourceGuild.Name})", sourceRoleName, true)
                 .AddField($"Target Role ({Context.Guild.Name})", targetRoleName, true)
+                .AddField("Sync Mode", syncMode.ToString(), true)
                 .WithColor(Color.Green)
                 .Build();
             
@@ -131,6 +139,27 @@ public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, Ro
         catch (Exception ex)
         {
             var errorEmbed = StatusEmbedGenerator.Error($"Failed to map roles: {ex.Message}");
+            
+            await FollowupAsync(embed: errorEmbed, ephemeral: true);
+        }
+    }
+
+    [SlashCommand("sync", "Sync roles between source and target")]
+    public async Task SyncRolesAsync()
+    {
+        await DeferAsync(true);
+
+        try
+        { 
+            await syncService.SyncAllRoleMappingsAsync(Context.Guild.Id);
+            
+            var embed = StatusEmbedGenerator.Success("Roles Synced", "All roles have been synced successfully.");
+            
+            await FollowupAsync(embed: embed, ephemeral: true);
+        }
+        catch (Exception ex)
+        {
+            var errorEmbed = StatusEmbedGenerator.Error($"Failed to sync roles: {ex.Message}");
             
             await FollowupAsync(embed: errorEmbed, ephemeral: true);
         }

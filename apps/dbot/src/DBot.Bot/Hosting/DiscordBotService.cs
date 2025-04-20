@@ -16,8 +16,7 @@ public class DiscordBotService(
     IOptions<DiscordConfiguration> discordOptions,
     DiscordSocketClient client,
     InteractionService interactions,
-    IServiceProvider services,
-    RoleMirrorService mirrorService
+    IServiceProvider services
 )
     : BackgroundService
 {
@@ -120,6 +119,9 @@ public class DiscordBotService(
 
     private async Task OnGuildMemberUpdated(Cacheable<SocketGuildUser, ulong> before, SocketGuildUser after)
     {
+        using var scope = services.CreateScope();
+        var mirrorService = scope.ServiceProvider.GetRequiredService<RoleMirrorService>();
+        
         // Make sure we have the before user cached
         if (!before.HasValue)
             return;
