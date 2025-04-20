@@ -1,4 +1,4 @@
-load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary")
+load("@rules_dotnet//dotnet:defs.bzl", "csharp_binary", "publish_binary")
 load("//prelude/dotnet:defs.bzl", "csharp_globalusings")
 
 csharp_binary(
@@ -30,9 +30,29 @@ csharp_binary(
         ":DBot.Bot.GlobalUsings",
     ],
     appsetting_files = ["appsettings.json"] + glob(["appsettings.*.json"]),
+    # To get this far I needed to do the following:
+    # 1. Use direct dependencies only (see resolve.go for updating the logic to output that)
+    # 2. Flip the flag in bazel rc
+    # 3. Add some logic in the rules_dotnet to prioritise dependency analyzers over the targeting pack
+    #
+    # And well, great it compiles. But it doesn't run. I get the following error:
+    #   Could not load file or assembly 'Microsoft.Extensions.Hosting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'
+    #
+    # I'm stuck on this for now. :(
+    compiler_options = ["/features:InterceptorsPreviewNamespaces=Microsoft.Extensions.Configuration.Binder.SourceGeneration"],
+    data = [
+        "dbot.db",
+    ],
     nullable = "enable",
     project_sdk = "web",
     target_frameworks = ["net8.0"],
+    # envs = {
+    #     "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT": "1",
+    #     "COREHOST_TRACE": "1",
+    #     "DOTNET_ASSEMBLY_LOAD_CONTEXT_DEBUG": "1",
+    #     # "DOTNET_ROLL_FORWARD": "LatestMajor",
+    #     "DOTNET_ROLL_FORWARD_ON_NO_CANDIDATE_FX": "2",
+    # },
     deps = [
         "//apps/dbot/src/DBot.Core",
         "//apps/dbot/src/DBot.Integrations.Assetto",
@@ -45,4 +65,11 @@ csharp_binary(
 csharp_globalusings(
     name = "DBot.Bot.GlobalUsings",
     sdk = "Microsoft.NET.Sdk.Worker",
+)
+
+publish_binary(
+    name = "publish",
+    binary = ":DBot.Bot",
+    runtime_identifier = "osx-arm64",
+    target_framework = "net8.0",
 )
