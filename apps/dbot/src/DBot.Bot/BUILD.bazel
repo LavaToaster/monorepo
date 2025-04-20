@@ -38,6 +38,8 @@ csharp_binary(
     # And well, great it compiles. But it doesn't run. I get the following error:
     #   Could not load file or assembly 'Microsoft.Extensions.Hosting, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60'
     #
+    # Oh, and the examples in simple_dotnet break when we use direct dependencies only...
+    #
     # I'm stuck on this for now. :(
     compiler_options = ["/features:InterceptorsPreviewNamespaces=Microsoft.Extensions.Configuration.Binder.SourceGeneration"],
     data = [
