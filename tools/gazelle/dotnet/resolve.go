@@ -30,20 +30,27 @@ func (l *dotnetLang) Resolve(
 		projectTargetFramework := packageInfo.project.ResolvedProps.TargetFramework
 		itemGroups := packageInfo.project.ItemGroups
 
-		for _, itemGroup := range itemGroups {
-			for _, packageReference := range itemGroup.PackageReferences {
-				// Do we need to look up the version?
-				version := packageInfo.lock.Dependencies[projectTargetFramework][strings.ToLower(packageReference.Include)].Resolved
-				packageId := strings.ToLower(strings.ReplaceAll(from.Pkg, "/", "_"))
-				repoKey := "@nuget_" + packageId
-
-				target := repoKey + "//" + strings.ToLower(packageReference.Include) + "/" + version
-
-				deps.Add(target)
-
-				logger.Debug("Found package reference", "name", packageReference.Include, "resolvedVersion", version, "target", target)
+		for name, item := range packageInfo.lock.Dependencies[projectTargetFramework] {
+			// I want to include transitive dependencies to allow rules_dotnet to rely
+			//  on its strict_deps setting.
+			//
+			// But the project doesn't compile, and I'm unsure what I'm doing wrong?
+			//
+			// if item.Type == "Project" {
+			if item.Type != "Direct" {
+				continue
 			}
 
+			version := item.Resolved
+			packageId := strings.ToLower(strings.ReplaceAll(from.Pkg, "/", "_"))
+			repoKey := "@nuget_" + packageId
+
+			target := repoKey + "//" + strings.ToLower(name) + "/" + version
+			deps.Add(target)
+			logger.Debug("Found package reference", "name", name, "resolvedVersion", version, "target", target)
+		}
+
+		for _, itemGroup := range itemGroups {
 			for _, projectReference := range itemGroup.ProjectReferences {
 				bazelTarget := GetBazelTarget(from.Pkg, projectReference.Include)
 
