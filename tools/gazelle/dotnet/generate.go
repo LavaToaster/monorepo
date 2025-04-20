@@ -98,7 +98,22 @@ func (l *dotnetLang) addProjectRules(args language.GenerateArgs, result *languag
 			dotnetRule.SetAttr("project_sdk", "web")
 		}
 
-		addAppsettingsFiles(dotnetRule)
+		hasAppsettings := false
+		hasMoreThanOneAppsettings := false
+
+		for _, files := range args.RegularFiles {
+			if strings.HasPrefix("appsettings", files) {
+				if hasAppsettings {
+					hasMoreThanOneAppsettings = true
+				}
+
+				hasAppsettings = true
+			}
+		}
+
+		if hasAppsettings {
+			addAppsettingsFiles(dotnetRule, hasMoreThanOneAppsettings)
+		}
 
 		// TODO: Add publish rule?
 	}
@@ -229,12 +244,17 @@ matchLoop:
 	return sourceFiles, nil
 }
 
-func addAppsettingsFiles(r *rule.Rule) {
+func addAppsettingsFiles(r *rule.Rule, hasMoreThanOneAppsettings bool) {
 	// Create a list expression with the specific file
 	filesList := &build.ListExpr{
 		List: []build.Expr{
 			&build.StringExpr{Value: "appsettings.json"},
 		},
+	}
+
+	if !hasMoreThanOneAppsettings {
+		r.SetAttr("appsetting_files", filesList)
+		return
 	}
 
 	// Create a binary expression that adds the glob to the list
