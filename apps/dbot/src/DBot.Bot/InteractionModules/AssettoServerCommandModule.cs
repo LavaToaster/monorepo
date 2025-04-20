@@ -33,7 +33,7 @@ public class AssettoServerCommandModule(
             var result = await serverService.AddOrUpdateServerAsync(guildId, displayName, host, port);
 
             var embed = new EmbedBuilder()
-                .WithTitle(result.IsNewServer ? "🆕 Server Added" : "✅ Server Updated")
+                .WithTitle(result.IsNewServer ? "Server Added" : "Server Updated")
                 .WithDescription(
                     $"Server **{displayName}** has been {(result.IsNewServer ? "added" : "updated")}.")
                 .WithColor(result.IsNewServer ? Color.Green : Color.Blue)
@@ -81,7 +81,7 @@ public class AssettoServerCommandModule(
             }
 
             var embed = new EmbedBuilder()
-                .WithTitle("🏎️ Configured Servers")
+                .WithTitle("Configured Servers")
                 .WithColor(Color.Blue);
 
             foreach (var server in servers)

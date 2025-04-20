@@ -7,7 +7,7 @@ public static class StatusEmbedGenerator
     public static Embed Success(string title, string description)
     {
         return new EmbedBuilder()
-            .WithTitle($"✅ {title}")
+            .WithTitle(title)
             .WithDescription(description)
             .WithColor(Color.Green)
             .Build();
@@ -16,7 +16,7 @@ public static class StatusEmbedGenerator
     public static Embed Error(string description)
     {
         return new EmbedBuilder()
-            .WithTitle("❌ Error")
+            .WithTitle("Error")
             .WithDescription(description)
             .WithColor(Color.Red)
             .Build();

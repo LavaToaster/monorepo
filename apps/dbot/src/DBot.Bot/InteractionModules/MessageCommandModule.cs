@@ -4,6 +4,7 @@ using Discord.Interactions;
 
 namespace DBot.Bot.InteractionModules;
 
+[DefaultMemberPermissions(GuildPermission.Administrator)]
 [Group("message", "Message commands")]
 public class MessageCommandModule(ILogger<MessageCommandModule> logger)
     : InteractionModuleBase<SocketInteractionContext>

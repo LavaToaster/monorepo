@@ -1,13 +1,23 @@
+using DBot.Bot.Embeds;
 using Discord;
 using Discord.Interactions;
 
 namespace DBot.Bot.InteractionModules;
 
+[DefaultMemberPermissions(GuildPermission.Administrator)]
 public class MessageInteractionsModule : InteractionModuleBase<SocketInteractionContext>
 {
     [MessageCommand("Edit Message")]
     public async Task EditMessage(IMessage message)
     {
+        if (message.Author.Id != Context.Client.CurrentUser.Id)
+        {
+            var embed = StatusEmbedGenerator.Error($"You can only edit messages sent by {Context.Guild.CurrentUser.DisplayName}.");
+            
+            await RespondAsync(embed: embed, ephemeral: true);
+            return;
+        }
+        
         var mb = new ModalBuilder()
             .WithTitle("Edit Message")
             .WithCustomId("edit-message-modal:" + message.Id);

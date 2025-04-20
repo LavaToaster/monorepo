@@ -8,6 +8,8 @@ using Discord.Interactions;
 
 namespace DBot.Bot.InteractionModules;
 
+[DefaultMemberPermissions(GuildPermission.Administrator)]
+[CommandContextType(InteractionContextType.Guild)]
 [Group("mirror", "Role commands")]
 public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, RoleMirrorService service, RoleSyncService syncService)
      : InteractionModuleBase<SocketInteractionContext>
