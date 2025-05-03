@@ -34,8 +34,14 @@ public class MessageCommandModule(ILogger<MessageCommandModule> logger)
             return;
         }
 
-        var thread = await forumChannel.CreatePostAsync(title, text: content);
+        try
+        {
+            var thread = await forumChannel.CreatePostAsync(title, text: content);
 
-        await FollowupAsync($"Thread created: {thread.Mention}", ephemeral: true);
+            await FollowupAsync($"Thread created: {thread.Mention}", ephemeral: true);
+        } catch (Exception ex) {
+            logger.LogError(ex, "Failed to create thread");
+            await FollowupAsync("Failed to create thread.", ephemeral: true);
+        }
     }
 }
