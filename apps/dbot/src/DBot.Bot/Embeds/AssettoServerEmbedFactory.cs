@@ -1,19 +1,24 @@
+using DBot.Bot.Services;
 using DBot.Bot.Util.Time;
 using DBot.Core.Data.Entities;
 using DBot.Integrations.Assetto.Models;
 using DBot.Integrations.Assetto.Util;
 using Discord;
-using Discord.WebSocket;
 
 namespace DBot.Bot.Embeds;
 
-public class AssettoServerEmbedFactory(DiscordSocketClient discordClient)
+public class AssettoServerEmbedFactory(IServiceProvider serviceProvider)
 {
+    private readonly DiscordBotManager _botManager = serviceProvider.GetRequiredService<DiscordBotManager>();
+
     public Embed CreateServerStatusEmbed(AssettoServerMonitorEntity monitor, DetailResponse? details)
     {
+        // Get the appropriate bot for this monitor based on the guild ID
+        var botUser = GetBotUser(monitor.GuildId);
+        
         var embedBuilder = new EmbedBuilder()
             .WithColor(0xFFE743)
-            .WithAuthor(discordClient.CurrentUser.GlobalName)
+            .WithAuthor(botUser.GlobalName)
             .WithDescription(monitor.Description)
             .WithThumbnailUrl(monitor.ThumbnailUrl);
 
@@ -50,5 +55,18 @@ public class AssettoServerEmbedFactory(DiscordSocketClient discordClient)
             .WithCurrentTimestamp();
 
         return embedBuilder.Build();
+    }
+    
+    private IUser GetBotUser(ulong guildId)
+    {
+        var botInstance = _botManager.GetBotForGuild(guildId);
+        var guild = botInstance.Client.GetGuild(guildId);
+
+        if (guild == null)
+        {
+            throw new InvalidOperationException($"Guild {guildId} not found");
+        }
+
+        return guild.CurrentUser;
     }
 }

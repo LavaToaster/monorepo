@@ -1,7 +1,7 @@
 namespace DBot.Core.Data.Entities;
 
 /// <summary>
-/// Defines how roles should be synchronized between source and target.
+/// Defines how roles should be synchronised between source and target.
 /// </summary>
 public enum RoleSync
 {

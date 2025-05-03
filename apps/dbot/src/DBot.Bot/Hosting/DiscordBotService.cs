@@ -5,7 +5,7 @@ using Discord;
 using Discord.Interactions;
 using Discord.WebSocket;
 using Microsoft.Extensions.Options;
-
+    
 namespace DBot.Bot.Hosting;
 
 /// <summary>
@@ -13,96 +13,135 @@ namespace DBot.Bot.Hosting;
 /// </summary>
 public class DiscordBotService(
     ILogger<DiscordBotService> logger,
-    IOptions<DiscordConfiguration> discordOptions,
-    DiscordSocketClient client,
-    InteractionService interactions,
+    IOptions<DiscordBotsConfiguration> discordBotsOptions,
+    DiscordBotManager botManager,
     IServiceProvider services
 )
     : BackgroundService
 {
-    private readonly DiscordConfiguration _discordConfig = discordOptions.Value;
-
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        // Set up logging
-        client.Log += OnClientLog;
-
-        // Set up event handlers
-        client.Ready += OnClientReady;
-        client.InteractionCreated += OnInteractionCreated;
-        client.GuildMemberUpdated += OnGuildMemberUpdated;
-
-        logger.LogInformation("Discord configuration loaded: Token={Token}, TestGuilds={TestGuilds}", _discordConfig.Token?.Substring(0,8) + "...", _discordConfig.TestGuilds);
-
-        // Connect to Discord
-        var token = _discordConfig.Token ??
-                    throw new InvalidOperationException("Discord Token not found in configuration");
-
-        await client.LoginAsync(TokenType.Bot, token);
-        await client.StartAsync();
-
-        logger.LogInformation("Discord bot started at: {time}", DateTimeOffset.Now);
-
-        // Keep the service running until cancellation is requested
-        await Task.Delay(Timeout.Infinite, stoppingToken);
-
-        // Clean up
-        await client.StopAsync();
-    }
-
-    public override async Task StopAsync(CancellationToken cancellationToken)
-    {
-        // TODO: This is nice for testing, but should be removed in production
-        //  as users might have multiple bots running on the same token
-        await client.SetStatusAsync(UserStatus.Invisible);
-        await client.StopAsync();
-
-        await base.StopAsync(cancellationToken);
-    }
-
-    private async Task OnClientReady()
     {
         try
         {
-            logger.LogInformation("Discord client ready, registering commands...");
+            logger.LogInformation("Initialising {count} bots", discordBotsOptions.Value.Bots.Count);
+            await InitialiseBotsAsync(stoppingToken);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Error initialising Discord bot service");
+        }
+    }
+
+    private async Task InitialiseBotsAsync(CancellationToken stoppingToken)
+    {
+        // Initialize all bot instances
+        await botManager.InitialiseBotsAsync();
+        
+        foreach (var botInstance in botManager.GetAllBots())
+        {
+            // Set up logging
+            botInstance.Client.Log += msg => OnClientLog(msg, botInstance.Id);
+
+            // Set up event handlers
+            botInstance.Client.Ready += () => OnClientReady(botInstance);
+            botInstance.Client.InteractionCreated += interaction => OnInteractionCreated(interaction, botInstance);
+            botInstance.Client.GuildMemberUpdated += OnGuildMemberUpdated;
+
+            
+            // Connect to Discord
+            logger.LogInformation("Connecting bot '{BotId}' to Discord", botInstance.Id);
+            
+            var token = botInstance.Config.Token;
+            if (string.IsNullOrEmpty(token))
+            {
+                logger.LogError("Discord token not found for bot '{BotId}'", botInstance.Id);
+                continue;
+            }
+
+            await botInstance.Client.LoginAsync(TokenType.Bot, token);
+            await botInstance.Client.StartAsync();
+        }
+        
+        // Register the guild member updated handler for role syncing
+        botManager.AddGuildMemberUpdatedHandler<RoleMirrorService>(async (service, after) => 
+        {
+            // Make sure we have the before user cached
+            var beforeUser = await ((IGuild)after.Guild).GetUserAsync(after.Id);
+            if (beforeUser == null)
+                return;
+                
+            // Check if roles were changed by comparing the role collections
+            if (!beforeUser.RoleIds.SequenceEqual(after.Roles.Select(r => r.Id)))
+            {
+                // Determine which roles were added
+                var addedRoles = after.Roles
+                    .Where(r => !beforeUser.RoleIds.Contains(r.Id))
+                    .Select(r => r.Id)
+                    .ToArray();
+                
+                // Determine which roles were removed
+                var removedRoles = beforeUser.RoleIds
+                    .Where(id => after.Roles.All(r => r.Id != id))
+                    .ToArray();
+
+                await service.UpdateUserRole(after.Guild.Id, after, addedRoles, removedRoles);
+            }
+        });
+
+        // Keep the service running until cancellation is requested
+        await Task.Delay(Timeout.Infinite, stoppingToken);
+        
+        // Clean up
+        foreach (var botInstance in botManager.GetAllBots())
+        {
+            await botInstance.Client.SetStatusAsync(UserStatus.Invisible);
+            await botInstance.Client.StopAsync();
+        }
+    }
+
+    private async Task OnClientReady(BotInstance botInstance)
+    {
+        try
+        {
+            logger.LogInformation("Discord client for bot '{BotId}' ready, registering commands...", botInstance.Id);
 
             // Add all command modules from the assembly
-            await interactions.AddModulesAsync(Assembly.GetExecutingAssembly(), services);
+            await botInstance.Interactions.AddModulesAsync(Assembly.GetExecutingAssembly(), services);
 
-            // Register commands globally
-            if (_discordConfig.TestGuilds?.Length > 0)
+            // Register commands globally or to test guilds
+            if (botInstance.Config.TestGuilds?.Length > 0)
             {
                 // Register commands to debug guilds for faster testing
-                var testGuildIds = _discordConfig.TestGuilds;
+                var testGuildIds = botInstance.Config.TestGuilds;
 
                 foreach (var guildId in testGuildIds)
                 {
-                    await interactions.RegisterCommandsToGuildAsync(guildId);
-                    logger.LogInformation("Commands registered to test guild {GuildId}", guildId);
+                    await botInstance.Interactions.RegisterCommandsToGuildAsync(guildId);
+                    logger.LogInformation("Commands registered to test guild {GuildId} for bot '{BotId}'", guildId, botInstance.Id);
                 }
             }
             else
             {
-                await interactions.RegisterCommandsGloballyAsync();
-                logger.LogInformation("Commands registered globally");
+                await botInstance.Interactions.RegisterCommandsGloballyAsync();
+                logger.LogInformation("Commands registered globally for bot '{BotId}'", botInstance.Id);
             }
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Error during client ready handling");
+            logger.LogError(ex, "Error during client ready handling for bot '{BotId}'", botInstance.Id);
         }
     }
 
-    private async Task OnInteractionCreated(SocketInteraction interaction)
+    private async Task OnInteractionCreated(SocketInteraction interaction, BotInstance botInstance)
     {
         try
         {
-            var context = new SocketInteractionContext(client, interaction);
-            await interactions.ExecuteCommandAsync(context, services);
+            var context = new SocketInteractionContext(botInstance.Client, interaction);
+            await botInstance.Interactions.ExecuteCommandAsync(context, services);
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Error handling interaction {InteractionId}", interaction.Id);
+            logger.LogError(ex, "Error handling interaction {InteractionId} for bot '{BotId}'", interaction.Id, botInstance.Id);
 
             // If this is not an ACK'd interaction, respond with an error
             if (interaction.Type is InteractionType.ApplicationCommand or
@@ -147,7 +186,7 @@ public class DiscordBotService(
         }
     }
 
-    private Task OnClientLog(LogMessage msg)
+    private Task OnClientLog(LogMessage msg, string botId)
     {
         var level = msg.Severity switch
         {
@@ -160,7 +199,7 @@ public class DiscordBotService(
             _ => LogLevel.Information
         };
 
-        logger.Log(level, msg.Exception, "[Discord Client] {Source}: {Message}", msg.Source, msg.Message);
+        logger.Log(level, msg.Exception, "[Discord Client - {BotId}] {Source}: {Message}", botId, msg.Source, msg.Message);
         return Task.CompletedTask;
     }
 }

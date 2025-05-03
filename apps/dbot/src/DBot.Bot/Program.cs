@@ -16,39 +16,15 @@ var builder = Host.CreateApplicationBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.local.json", true, true);
 #endif
 
-builder.Services.Configure<DiscordConfiguration>(builder.Configuration.GetSection("Discord"));
+builder.Services.Configure<DiscordBotsConfiguration>(builder.Configuration.GetSection("Discord"));
 
-// Configure Discord client
-builder.Services.AddSingleton(_ =>
-{
-    var config = new DiscordSocketConfig
-    {
-        GatewayIntents = GatewayIntents.GuildMembers | GatewayIntents.Guilds | GatewayIntents.GuildMessages,
-        AlwaysDownloadUsers = true
-    };
+// Register the bot manager service (singleton so it persists across scopes)
+builder.Services.AddSingleton<DiscordBotManager>();
 
-    return new DiscordSocketClient(config);
-});
-
-// Configure Discord interactions
-builder.Services.AddSingleton(serviceProvider =>
-{
-    var config = new InteractionServiceConfig
-    {
-        DefaultRunMode = RunMode.Async,
-        LogLevel = LogSeverity.Info
-    };
-    
-    return new InteractionService(
-        serviceProvider.GetRequiredService<DiscordSocketClient>(),
-        config
-    );
-});
-
-builder.Services.AddScoped<IAssettoServerService, AssettoServerService>();
+builder.Services.AddTransient<IAssettoServerService, AssettoServerService>();
 builder.Services.AddAssettoServerClient();
-builder.Services.AddSingleton<AssettoStatusMessageGenerator>();
-builder.Services.AddSingleton<AssettoServerEmbedFactory>();
+builder.Services.AddTransient<AssettoStatusMessageGenerator>();
+builder.Services.AddTransient<AssettoServerEmbedFactory>();
 builder.Services.AddTransient<RoleMirrorService>();
 builder.Services.AddTransient<RoleSyncService>();
 

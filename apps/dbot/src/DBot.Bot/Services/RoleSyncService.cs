@@ -1,8 +1,6 @@
 using DBot.Core.Data.Context;
 using DBot.Core.Data.Entities;
-using Discord.WebSocket;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace DBot.Bot.Services;
 
@@ -10,7 +8,7 @@ namespace DBot.Bot.Services;
 /// Service to synchronize role mappings between source and target servers.
 /// </summary>
 public class RoleSyncService(
-    DiscordSocketClient client,
+    DiscordBotManager botManager,
     ILogger<RoleSyncService> logger,
     ApplicationDbContext context)
 {
@@ -46,8 +44,18 @@ public class RoleSyncService(
     {
         try
         {
-            var sourceGuild = client.GetGuild(mapping.SourceRole.GuildId);
-            var targetGuild = client.GetGuild(mapping.TargetRole.GuildId);
+            var sourceBotInstance = botManager.GetBotForGuild(mapping.SourceRole.GuildId);
+            var targetBotInstance = botManager.GetBotForGuild(mapping.TargetRole.GuildId);
+            
+            if (sourceBotInstance == null || targetBotInstance == null)
+            {
+                logger.LogWarning("Could not sync roles - bot instance not found for guild. SourceGuildId: {SourceGuildId}, TargetGuildId: {TargetGuildId}",
+                    mapping.SourceRole.GuildId, mapping.TargetRole.GuildId);
+                return;
+            }
+
+            var sourceGuild = sourceBotInstance.Client.GetGuild(mapping.SourceRole.GuildId);
+            var targetGuild = targetBotInstance.Client.GetGuild(mapping.TargetRole.GuildId);
 
             if (sourceGuild == null || targetGuild == null)
             {

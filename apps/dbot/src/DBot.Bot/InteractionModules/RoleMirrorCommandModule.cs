@@ -11,7 +11,7 @@ namespace DBot.Bot.InteractionModules;
 [DefaultMemberPermissions(GuildPermission.Administrator)]
 [CommandContextType(InteractionContextType.Guild)]
 [Group("mirror", "Role commands")]
-public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, RoleMirrorService service, RoleSyncService syncService)
+public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, DiscordBotManager botManager, RoleMirrorService service, RoleSyncService syncService)
      : InteractionModuleBase<SocketInteractionContext>
 {
     [SlashCommand("register", "Register a role to be mirrored")]
@@ -107,7 +107,7 @@ public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, Ro
         int syncMode)
     {
         await DeferAsync(true);
-    
+        
         try
         {
             var sourceRole = await service.GetRoleCandidateAsync(Guid.Parse(sourceRoleInput));
@@ -124,7 +124,7 @@ public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, Ro
 
             await service.RegisterRoleMappingAsync(sourceRole, targetRole, syncModeRole);
             
-            var sourceGuild = Context.Client.GetGuild(sourceRole.GuildId);
+            var sourceGuild = botManager.GetBotForGuild(sourceRole.GuildId).Client.GetGuild(sourceRole.GuildId);
             var sourceRoleName = sourceGuild.GetRole(sourceRole.RoleId).Name;
             var targetRoleName = Context.Guild.GetRole(targetRole.RoleId).Name;
 
@@ -141,6 +141,8 @@ public class RoleMirrorCommandModule(ILogger<RoleMirrorCommandModule> logger, Ro
         catch (Exception ex)
         {
             var errorEmbed = StatusEmbedGenerator.Error($"Failed to map roles: {ex.Message}");
+
+            logger.LogError(ex, "Error mapping roles");
             
             await FollowupAsync(embed: errorEmbed, ephemeral: true);
         }

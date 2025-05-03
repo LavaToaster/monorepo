@@ -14,7 +14,7 @@ namespace DBot.Bot.Hosting;
 /// </summary>
 public class AssettoServerMonitorService(
     IServiceScopeFactory scopeFactory,
-    DiscordSocketClient discordClient,
+    DiscordBotManager botManager,
     AssettoServerClientFactory clientFactory,
     AssettoStatusMessageGenerator messageGenerator,
     ILogger<AssettoServerMonitorService> logger)
@@ -26,12 +26,34 @@ public class AssettoServerMonitorService(
     {
         logger.LogInformation("Assetto server monitor service is starting");
 
-        // Wait until Discord client is ready before processing servers
-        while (!discordClient.ConnectionState.HasFlag(ConnectionState.Connected) &&
-               !stoppingToken.IsCancellationRequested)
+        // Wait until Discord clients are ready before processing servers
+        var allBotsReady = false;
+        while (!allBotsReady && !stoppingToken.IsCancellationRequested)
         {
-            logger.LogInformation("Waiting for Discord client to connect...");
-            await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);
+            try
+            {
+                allBotsReady = true;
+                foreach (var bot in botManager.GetAllBots())
+                {
+                    if (bot.Client.ConnectionState != ConnectionState.Connected)
+                    {
+                        allBotsReady = false;
+                        break;
+                    }
+                }
+
+                if (!allBotsReady)
+                {
+                    logger.LogInformation("Waiting for Discord clients to connect...");
+                    await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);
+                }
+            }
+            catch (Exception)
+            {
+                // If botManager isn't ready yet or has no bots, wait and try again
+                allBotsReady = false;
+                await Task.Delay(TimeSpan.FromSeconds(5), stoppingToken);
+            }
         }
 
         while (!stoppingToken.IsCancellationRequested)
@@ -87,7 +109,7 @@ public class AssettoServerMonitorService(
             }
             catch
             {
-                // ignore
+                // ignore connection errors, server might be offline
             }
 
             // Update server last checked time
@@ -95,7 +117,13 @@ public class AssettoServerMonitorService(
 
             // Update all status messages for this server
             foreach (var statusMessage in server.StatusMessages)
-                await messageGenerator.UpdateServerStatusMessageAsync(statusMessage, details);
+            {
+                // Find the appropriate bot for this status message
+                // Use the bot manager to determine which bot should be used for this server/guild
+                var botInstance = botManager.GetBotForGuild(statusMessage.GuildId);
+                
+                await messageGenerator.UpdateServerStatusMessageAsync(statusMessage, details, botInstance.Client);
+            }
 
             await dbContext.SaveChangesAsync(stoppingToken);
         }

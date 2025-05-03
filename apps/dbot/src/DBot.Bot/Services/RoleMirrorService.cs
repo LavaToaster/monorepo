@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DBot.Bot.Services;
 
 public class RoleMirrorService(
-    DiscordSocketClient client,
+    DiscordBotManager botManager,
     ILogger<RoleMirrorService> logger,
     ApplicationDbContext context)
 {
@@ -81,7 +81,7 @@ public class RoleMirrorService(
         context.RoleMirrorMappings.Remove(mapping);
         await context.SaveChangesAsync();
     }
-
+    
     public async Task UpdateUserRole(ulong guildId, SocketGuildUser user, ulong[] addedRoles, ulong[] removedRoles)
     {
         var roleMirrorMappings = await context.RoleMirrorMappings
@@ -102,13 +102,16 @@ public class RoleMirrorService(
         foreach (var roleMirrorMapping in rolesToRemove)
         {
             var targetRole = roleMirrorMapping.TargetRole;
-            var guild = client.GetGuild(targetRole.GuildId);
-            var guildUser = guild.GetUser(user.Id);
+            var botInstance = botManager.GetBotForGuild(targetRole.GuildId);
+            if (botInstance == null) continue;
+            
+            var guild = botInstance.Client.GetGuild(targetRole.GuildId);
+            var guildUser = guild?.GetUser(user.Id);
             
             if (guildUser == null)
             {
                 // User not found in the target guild
-                return;
+                continue;
             }
             
             var role = guild.GetRole(targetRole.RoleId);
@@ -123,13 +126,16 @@ public class RoleMirrorService(
         foreach (var roleMirrorMapping in rolesToAdd)
         {
             var targetRole = roleMirrorMapping.TargetRole;
-            var guild = client.GetGuild(targetRole.GuildId);
-            var guildUser = guild.GetUser(user.Id);
+            var botInstance = botManager.GetBotForGuild(targetRole.GuildId);
+            if (botInstance == null) continue;
+            
+            var guild = botInstance.Client.GetGuild(targetRole.GuildId);
+            var guildUser = guild?.GetUser(user.Id);
             
             if (guildUser == null)
             {
                 // User not found in the target guild
-                return;
+                continue;
             }
             
             var role = guild.GetRole(targetRole.RoleId);

@@ -1,9 +1,12 @@
 using DBot.Bot.Embeds;
+using DBot.Core.Data.Context;
 using DBot.Core.Data.Entities;
 using DBot.Integrations.Assetto;
 using DBot.Integrations.Assetto.Models;
 using Discord;
+using Discord.Rest;
 using Discord.WebSocket;
+using Microsoft.EntityFrameworkCore;
 
 namespace DBot.Bot.Services;
 
@@ -11,88 +14,114 @@ namespace DBot.Bot.Services;
 ///     Handles the generation and updating of Discord server status messages
 /// </summary>
 public class AssettoStatusMessageGenerator(
-    DiscordSocketClient discordClient,
+    ILogger<AssettoStatusMessageGenerator> logger,
     AssettoServerClientFactory clientFactory,
     AssettoServerEmbedFactory embedFactory,
-    ILogger<AssettoStatusMessageGenerator> logger)
+    DiscordBotManager botManager)
 {
-    public async Task CreateServerStatusMessageAsync(AssettoServerMonitorEntity monitor,
-        AssettoServerEntity server)
+    public async Task<bool> CreateServerStatusMessageAsync(
+        AssettoServerMonitorEntity monitor, 
+        AssettoServerEntity server, 
+        DiscordSocketClient? client = null)
     {
         try
         {
-            var client = clientFactory.CreateClient(server.ApiUrl);
-
-            var details = await client.GetServerDetailsAsync();
-
-            await UpdateServerStatusMessageAsync(monitor, details);
-        }
-        catch (Exception ex)
-        {
-            logger.LogError(ex, "Failed to create status message for server {ServerId}", server.Id);
-            throw;
-        }
-    }
-
-    public async Task UpdateServerStatusMessageAsync(AssettoServerMonitorEntity monitor, DetailResponse? details)
-    {
-        try
-        {
-            var guild = discordClient.GetGuild(monitor.GuildId);
-
-            if (guild == null)
+            if (client == null)
             {
-                logger.LogWarning("Could not find guild {GuildId} for status message {MessageId}",
-                    monitor.GuildId, monitor.MessageId);
-                return;
+                var botInstance = botManager.GetBotForGuild(monitor.GuildId);
+                client = botInstance.Client;
+            }
+            
+            // Get the server details
+            var assettoClient = clientFactory.CreateClient(server.ApiUrl);
+            DetailResponse? details = null;
+
+            try
+            {
+                details = await assettoClient.GetServerDetailsAsync();
+            }
+            catch
+            {
+                // Server might be offline, that's ok - we'll show the offline status
             }
 
-            var channel = guild.GetTextChannel(monitor.ChannelId);
+            // Create the embed
+            var embed = embedFactory.CreateServerStatusEmbed(monitor, details);
 
+            // Get the channel and message
+            var channel = await client.GetChannelAsync(monitor.ChannelId) as IMessageChannel;
             if (channel == null)
             {
-                logger.LogWarning("Could not find channel {ChannelId} in guild {GuildId}",
-                    monitor.ChannelId, monitor.GuildId);
-                return;
+                logger.LogError("Channel {ChannelId} not found", monitor.ChannelId);
+                return false;
             }
 
             var message = await channel.GetMessageAsync(monitor.MessageId) as IUserMessage;
-
             if (message == null)
             {
-                logger.LogWarning("Could not find message {MessageId} in channel {ChannelId}",
-                    monitor.MessageId, monitor.ChannelId);
-                return;
+                logger.LogError("Message {MessageId} not found in channel {ChannelId}", monitor.MessageId, monitor.ChannelId);
+                return false;
             }
 
-            var embed = embedFactory.CreateServerStatusEmbed(monitor, details);
-
-            await message.ModifyAsync(msg =>
-            {
-                msg.Embed = embed;
-
-                if ((message.Flags & MessageFlags.SuppressEmbeds) == MessageFlags.SuppressEmbeds)
-                {
-                    msg.Flags = message.Flags & ~MessageFlags.SuppressEmbeds;
-                }
-                
-                // if (details is not null)
-                // {
-                //     var button = new ComponentBuilder()
-                //         .WithButton("Drive now",
-                //             emote: Emote.Parse("<:aegis_participant:1301470357865365504>"),
-                //             style: ButtonStyle.Link,
-                //             url: $"https://acstuff.ru/s/q:race/online/join?ip={details.Ip}&httpPort={details.WrappedPort}");
-                //     
-                //     msg.Components = button.Build();
-                // }
-            });
+            // Update the message
+            await message.ModifyAsync(props => props.Embed = embed);
+            return true;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Failed to update status message {MessageId} in channel {ChannelId}",
-                monitor.MessageId, monitor.ChannelId);
-            throw;
+            logger.LogError(ex, "Error creating server status message for {ServerUrl}", server.ApiUrl);
+            return false;
+        }
+    }
+
+    public async Task<bool> UpdateServerStatusMessageAsync(
+        AssettoServerMonitorEntity monitor, 
+        DetailResponse? details, 
+        DiscordSocketClient? client = null)
+    {
+        try
+        {
+            if (client == null)
+            {
+                var botInstance = botManager.GetBotForGuild(monitor.GuildId);
+                client = botInstance.Client;
+            }
+            
+            // Create the embed
+            var embed = embedFactory.CreateServerStatusEmbed(monitor, details);
+
+            // Get the channel and message
+            var channel = await client.GetChannelAsync(monitor.ChannelId) as IMessageChannel;
+            if (channel == null)
+            {
+                logger.LogError("Channel {ChannelId} not found", monitor.ChannelId);
+                return false;
+            }
+
+            var message = await channel.GetMessageAsync(monitor.MessageId) as IUserMessage;
+            if (message == null)
+            {
+                logger.LogError("Message {MessageId} not found in channel {ChannelId}", monitor.MessageId, monitor.ChannelId);
+                return false;
+            }
+
+            // Update the message
+            await message.ModifyAsync(props => props.Embed = embed);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            // If this is a Discord.Net error about unknown channel or message, just log as debug
+            if (ex is Discord.Net.HttpException || ex.Message.Contains("not found"))
+            {
+                logger.LogDebug("Message or channel not found for monitor {MonitorId}: {Error}", monitor.Id, ex.Message);
+            }
+            else
+            {
+                logger.LogError(ex, "Error updating server status message for monitor {MonitorId}", monitor.Id);
+            }
+            
+            return false;
         }
     }
 }
